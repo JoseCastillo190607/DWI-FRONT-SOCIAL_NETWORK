@@ -1,0 +1,19 @@
+.contaierLogin{
+    
+}
+
+.containerLogin{
+    margin-bottom: 10px;
+}
+
+.containerRegister{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.containerLabel-Resgistro{
+display: flex;
+text-align: center;
+align-items: center;
+}
