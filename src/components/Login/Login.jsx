@@ -29,7 +29,7 @@ export default function Login() {
   return (
     <div>
       <Card className="containerLogin"
-        sx={{ minWidth: 275, height: 580, width: 350 }}
+        sx={{ minWidth: 275, height: 396, width: 350 }}
       >
         <CardContent>
           <Typography className="containerContent" variant="h5" component="div">
