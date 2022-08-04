@@ -38,3 +38,19 @@ export async function updatePost(id, post) {
     console.log(error);
   }
 }
+
+
+export async function deletePost(id) {
+  try {
+    const response = await fetch(`${API_URL}/delete/${id}`, {
+      method: "DELETE",
+    });
+    return response.json();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+
+
