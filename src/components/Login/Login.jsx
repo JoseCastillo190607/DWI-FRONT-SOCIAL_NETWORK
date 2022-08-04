@@ -14,7 +14,6 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { height } from "@mui/system";
 
 const bull = (
   <Box
@@ -28,7 +27,8 @@ const bull = (
 export default function Login() {
   return (
     <div>
-      <Card className="containerLogin"
+      <Card
+        className="containerLogin"
         sx={{ minWidth: 275, height: 580, width: 350 }}
       >
         <CardContent>
@@ -38,8 +38,14 @@ export default function Login() {
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             <form className="form-login">
               <div className="div-login">
-                <input className="input-correo" placeholder="Correo electronico"></input>
-                <input className="input-password" placeholder="Contraseña"></input>
+                <input
+                  className="input-correo"
+                  placeholder="Correo electronico"
+                ></input>
+                <input
+                  className="input-password"
+                  placeholder="Contraseña"
+                ></input>
               </div>
               <div className="div-login">
                 <Button className="btnLogin">Login</Button>
@@ -64,13 +70,13 @@ export default function Login() {
         </Typography>
         <CardActions className="btnRegister">
           {/* <div className="containerLabel-Resgistro"> */}
-            {/* <div className="" maxWidth="50%"></div>
+          {/* <div className="" maxWidth="50%"></div>
             <div className="" maxWidth="50%">
               {" "}
             </div> */}
-            <Button className="btnRegister" size="small">
-              Registrate
-            </Button>
+          <Button className="btnRegister" size="small">
+            Registrate
+          </Button>
           {/* </div> */}
         </CardActions>
       </Card>
