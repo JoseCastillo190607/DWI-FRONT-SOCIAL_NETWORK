@@ -1,0 +1,68 @@
+
+
+.containerLogin{
+    margin-bottom: 10px;
+}
+ 
+.containerContent{
+    padding-top: 80px;
+    padding-bottom: 50px;
+}
+
+.input-correo{
+    padding: 9px 0px 7px 8px;
+    margin-bottom: 8px;
+    width: 250px;
+    height: 20px;
+    background-color: #fafafa;
+    border: solid 1px #dbdbdb;
+}
+
+.input-correo:hover {
+    background-color:rgba(0, 255, 255, 0.426);
+    color: #000;
+    border: none;
+}
+
+.input-password{
+    padding: 9px 0px 7px 8px;
+    margin-bottom: 20px;
+    width: 250px;
+    height: 20px;
+    background-color: #fafafa;
+    border: solid 1px #dbdbdb;
+}
+
+.input-password:hover {
+    background-color:rgba(0, 255, 255, 0.426);
+    color: #000;
+    border: solid 1px #dbdbdb;
+}
+
+.btnLogin{
+    border: solid 1px black;
+    align-items: center;
+    width: 250px;
+}
+
+.containerRegister{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.containerLabel-Resgistro{
+display: flex;
+text-align: center;
+align-items: center;
+}
+
+.labelRegistro{
+    padding-top: 14px;
+    padding-left: 40px;
+}
+
+/* .btnRegister{
+    padding-left: 40px;
+    padding-bottom: 40px;
+} */
