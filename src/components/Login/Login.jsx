@@ -1,28 +1,11 @@
-// import React from 'react'
 import "./login.css";
 
-// export default function Login() {
-//   return (
-//     <div>Login</div>
-//   )
-// }
-
 import * as React from "react";
-import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-  >
-    •
-  </Box>
-);
 
 export default function Login() {
   return (
@@ -69,15 +52,9 @@ export default function Login() {
           <label size="small">¿No tienes una cuenta?</label>
         </Typography>
         <CardActions className="btnRegister">
-          {/* <div className="containerLabel-Resgistro"> */}
-          {/* <div className="" maxWidth="50%"></div>
-            <div className="" maxWidth="50%">
-              {" "}
-            </div> */}
           <Button className="btnRegister" size="small">
             Registrate
           </Button>
-          {/* </div> */}
         </CardActions>
       </Card>
     </div>
