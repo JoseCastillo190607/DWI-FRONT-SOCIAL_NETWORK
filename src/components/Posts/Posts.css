@@ -1,0 +1,20 @@
+.input{
+    padding: 9px 0px 7px 8px;
+    margin: 8px;
+    width: 250px;
+    height: 20px;
+    background-color: #fafafa;
+    border: solid 1px #dbdbdb;
+}
+
+.input:hover {
+    background-color:rgba(0, 255, 255, 0.426);
+    color: #000;
+    border: none;
+}
+
+.btnPost{
+    border: solid 1px black;
+    align-items: center;
+    width: 250px;
+}
