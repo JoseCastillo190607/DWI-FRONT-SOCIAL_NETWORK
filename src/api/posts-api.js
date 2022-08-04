@@ -16,7 +16,22 @@ export async function createPost(post) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(producto),
+      body: JSON.stringify(post),
+    });
+    return response.json();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function updatePost(id, post) {
+  try {
+    const response = await fetch(`${API_URL}/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(post),
     });
     return response.json();
   } catch (error) {
