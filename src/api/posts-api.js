@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/posts";
+const API_URL = "http://localhost:5000/api/posts";
 
 export async function getPosts() {
   try {
