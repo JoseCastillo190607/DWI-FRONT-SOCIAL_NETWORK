@@ -40,9 +40,20 @@ export async function updatePost(id, post) {
 }
 
 
+// export async function deletePost(id) {
+//   try {
+//     const response = await fetch(`${API_URL}/delete/${id}`, {
+//       method: "DELETE",
+//     });
+//     return response.json();
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+
 export async function deletePost(id) {
   try {
-    const response = await fetch(`${API_URL}/delete/${id}`, {
+    const response = await fetch(`${API_URL}/${id}`, {
       method: "DELETE",
     });
     return response.json();

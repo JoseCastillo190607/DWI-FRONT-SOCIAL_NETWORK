@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 // import { useTranslation } from 'react-i18next';
 // import '../Posts/Posts.css'
 import "./Posts.css";
@@ -53,17 +53,17 @@ const Posts = () => {
 
         return (
             <div className="post-item">
-                <Card>
-                    <CardContent>
-                        <Typography className="containerContent" variant="h5" component="div">
-                            Devstragram
-                        </Typography>
-                        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                            <center>
+                <center>
+                    <Card>
+                        <CardContent>
+                            <Typography className="containerContent" variant="h5" component="div">
+                                Devstragram
+                            </Typography>
+                            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                                 <div className="post-grid">
-                                    <h2>
+                                    <h3>
                                         {title} <button onClick={handleEdit}>Edit</button>
-                                    </h2>
+                                    </h3>
                                     <h4>{description}</h4>
                                     <p>
                                         Ubication:<b>{ubication}</b>{" "}
@@ -101,7 +101,7 @@ const Posts = () => {
                                                 }
                                             />
                                             <div>
-                                                <h3>Ubication </h3> 
+                                                <h3>Ubication </h3>
                                                 <input
                                                     className="input"
                                                     type="text"
@@ -112,7 +112,7 @@ const Posts = () => {
                                                     }
                                                 />
                                             </div>
-                                            
+
                                             <button
                                                 className="button-primary"
                                                 onClick={() => handleCreateOrUpdatePost(edditingPost)}
@@ -122,10 +122,10 @@ const Posts = () => {
                                         </div>
                                     )}
                                 </div>
-                            </center>
-                        </Typography>
-                    </CardContent>
-                </Card>
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                </center>
             </div>
         );
     };
@@ -161,7 +161,7 @@ const Posts = () => {
                 </center>
                 {posts &&
                     posts.map((post) => (
-                        <PostComponent key="{posts}"
+                        <PostComponent
                             {...post}
                             handleCreateOrUpdatePost={handleCreateOrUpdatePost}
                             removePost={removePost}
