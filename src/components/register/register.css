@@ -19,9 +19,9 @@
 }
 
 .input-correo:hover {
-    background-color:rgba(0, 255, 255, 0.426);
-    color: #000;
-    border: none;
+    background-color: #000;
+    color: #fff;
+    border: solid 1px #dbdbdb;
 }
 
 .input-password{
@@ -34,8 +34,8 @@
 }
 
 .input-password:hover {
-    background-color:rgba(0, 255, 255, 0.426);
-    color: #000;
+    background-color: #000;
+    color: #fff;
     border: solid 1px #dbdbdb;
 }
 
