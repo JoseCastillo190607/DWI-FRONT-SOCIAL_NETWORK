@@ -1,6 +1,6 @@
 import "./register.css";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Widget } from "@uploadcare/react-widget";
 
 import axios from "axios";
@@ -102,7 +102,8 @@ export default function Login() {
                 />
                 <Widget
                   publicKey="712e3cdcf23e9fa90269"
-                  id="file"
+                  enableVideoRecording='false'
+                  tabs="file camera"
                   onChange={(info) => setPhoto(info.uuid)}
                 />
               </div>
