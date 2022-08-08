@@ -37,8 +37,6 @@ export default function Login() {
       });
   };
 
-  // useEffect(login, [checkdata]);
-
   return (
     <div>
       <Card
