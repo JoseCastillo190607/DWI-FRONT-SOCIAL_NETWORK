@@ -42,6 +42,7 @@ const Posts = () => {
         title,
         description,
         ubication,
+        image,
         updatedAt,
         removePost,
         handleCreateOrUpdatePost,
@@ -51,7 +52,7 @@ const Posts = () => {
 
         const handleEdit = () => {
             setIsEditing((current) => !current);
-            setEditingPost({ _id, title, description, ubication });
+            setEditingPost({ _id, title, description, ubication, image});
         };
 
         return (
@@ -71,6 +72,7 @@ const Posts = () => {
                                     <p>
                                         Ubication:<b>{ubication}</b>{" "}
                                     </p>
+                                    <p>Image: {image}</p>
                                     <button className="button-danger" onClick={() => removePost(_id)}>
                                         Delete
                                     </button>
@@ -111,7 +113,19 @@ const Posts = () => {
                                                     name="title"
                                                     value={newPost.ubication}
                                                     onChange={(e) =>
-                                                        setNewPost((current) => ({ ...current, ubication: e.target.value }))
+                                                        setEditingPost((current) => ({ ...current, ubication: e.target.value }))
+                                                    }
+                                                />
+                                            </div>
+                                            <div>
+                                                <h3>Image </h3>
+                                                <input
+                                                    className="input"
+                                                    type="text"
+                                                    name="image"
+                                                    value={newPost.image}
+                                                    onChange={(e) =>
+                                                        setEditingPost((current) => ({ ...current, image: e.target.value }))
                                                     }
                                                 />
                                             </div>
