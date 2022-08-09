@@ -8,6 +8,8 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
+import { Widget } from "@uploadcare/react-widget";
+
 
 import {
     getPosts,
@@ -25,6 +27,7 @@ const Posts = () => {
     //   }
 
     const [posts, setPosts] = useState([]);
+    const [photo,setPhoto] = useState("");
 
     const [newPost, setNewPost] = useState({});
 
@@ -169,6 +172,12 @@ const Posts = () => {
                     ))}
                 <div className="posts-create">
                     <center>
+                        <Widget
+                            publicKey="712e3cdcf23e9fa90269"
+                            enableVideoRecording='false'
+                            tabs="file camera"
+                            onChange={(info) => setPhoto(info.uuid)}
+                        />
                         <div>
                             <h3>Title </h3>
                             <input
