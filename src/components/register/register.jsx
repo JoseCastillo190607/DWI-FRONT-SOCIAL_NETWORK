@@ -21,7 +21,7 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [dateofbirth, setDateofbirth] = useState("");
-  const [photo,setPhoto] = useState("");
+  const [photo, setPhoto] = useState("");
   const [dataregister, setDataregister] = useState({});
 
   const register = () => {
@@ -40,10 +40,10 @@ export default function Login() {
   };
 
   return (
-    <div>
+    <div style={{ paddingTop: "1%", paddingBottom: "1%" }}>
       <Card
         className="containerLogin"
-        sx={{ minWidth: 275, height: 580, width: 350 }}
+        sx={{ minWidth: 275, height: 570, width: 350 }}
       >
         <CardContent>
           <Typography className="containerContent" variant="h5" component="div">
@@ -100,13 +100,28 @@ export default function Login() {
                     setDateofbirth(event.target.value);
                   }}
                 />
-                <Widget
-                  publicKey="712e3cdcf23e9fa90269"
-                  enableVideoRecording='false'
-                  tabs="file camera"
-                  onChange={(info) => setPhoto(info.uuid)}
-                />
+                <div className="div-login">
+                  <Widget
+                    variant="outlined"
+                    publicKey="712e3cdcf23e9fa90269"
+                    enableVideoRecording="false"
+                    tabs="file camera"
+                    onFileSelect={(file) => {
+                      console.log("File changed: ", file);
+                      if (file) {
+                        file.progress((info) =>
+                          console.log("File progress: ", info.progress)
+                        );
+                        file.done((info) =>
+                          console.log("File uploaded: ", info)
+                        );
+                      }
+                    }}
+                    onChange={(info) => setPhoto(info.uuid)}
+                  />
+                </div>
               </div>
+              <br />
               <div className="div-login">
                 <Button
                   className="btnLogin"
@@ -120,7 +135,7 @@ export default function Login() {
                       dateofbirth,
                       photo,
                     });
-                    console.log(dataregister)
+                    console.log(dataregister);
                     register();
                   }}
                 >
