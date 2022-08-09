@@ -8,7 +8,6 @@ import "./login.css";
 // }
 
 import * as React from "react";
-import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -16,19 +15,10 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { height } from "@mui/system";
 
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-  >
-    •
-  </Box>
-);
-
 export default function Login() {
   return (
     <div>
-      <Card className="containerLogin"
+      <div className="containerLogin"
         sx={{ minWidth: 275, height: 396, width: 350 }}
       >
         <CardContent>
@@ -38,8 +28,9 @@ export default function Login() {
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             <form className="form-login">
               <div className="div-login">
+                <label className="label-correo" htmlFor="username">Username</label>
                 <input className="input-correo" placeholder="Correo electronico"></input>
-                <input className="input-password" placeholder="Contraseña"></input>
+                <input className="input-password" type="password" placeholder="Contraseña"></input>
               </div>
               <div className="div-login">
                 <Button className="btnLogin">Login</Button>
@@ -47,9 +38,9 @@ export default function Login() {
             </form>
           </Typography>
         </CardContent>
-      </Card>
+      </div>
 
-      <Card
+      <div
         className="containerRegister"
         size="small"
         sx={{ minWidth: 275, height: 63, width: 350 }}
@@ -73,7 +64,7 @@ export default function Login() {
             </Button>
           {/* </div> */}
         </CardActions>
-      </Card>
+      </div>
     </div>
   );
 }
