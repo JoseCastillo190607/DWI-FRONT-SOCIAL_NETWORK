@@ -43,7 +43,7 @@ export default function Login() {
     <div style={{ paddingTop: "1%", paddingBottom: "1%" }}>
       <Card
         className="containerLogin"
-        sx={{ minWidth: 275, height: 650, width: 350 }}
+        sx={{ minWidth: 275, height: 700, width: 350 }}
       >
         <CardContent>
           <Typography className="containerContent" variant="h5" component="div">
@@ -101,11 +101,11 @@ export default function Login() {
                   }}
                 />
                 <div className="div-login">
-                  <img
-                    src={`https://ucarecdn.com/${photo}/-/resize/50x50/-/preview/`}
-                    alt=""
-                    srcset=""
-                  /> <br />
+                 <img
+                    src= {`https://ucarecdn.com/${photo}/-/resize/100x100/-/preview/`}
+                    alt="foto tomada"
+                  />
+                  <br/>
                   <Widget
                     variant="outlined"
                     publicKey="712e3cdcf23e9fa90269"
