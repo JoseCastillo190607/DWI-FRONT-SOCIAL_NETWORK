@@ -4,30 +4,40 @@ import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import Divider from '@mui/material/Divider';
+// import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
-import PersonAdd from '@mui/icons-material/PersonAdd';
+// import PersonAdd from '@mui/icons-material/PersonAdd';
 // import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
+import { Link } from 'react-router-dom';
+import '../Navbar/navbar.css';
+import { GlobalContext } from "../../context/global-context";
+import { useContext, useState } from 'react';
 
 export default function Navbar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const { userdata } = useContext(GlobalContext);
+ console.log('userdata:',userdata)
+//  const { handleUser } = useContext(GlobalContext);
+  
+
   return (
     <div className=''>
       <React.Fragment>
         <Box className='nav' sx={{
           display: 'flex', alignItems: 'center', textAlign: 'center', backgroundColor: 'black', width: '900px', height: '50px', borderRadius: '10px', justifyContent: 'center'
         }}>
-        <Typography sx={{ minWidth: 100 }}>Contact</Typography>
+        <Typography sx={{ minWidth: 100 }}>{userdata.name}</Typography>
         <Tooltip title="Account settings">
           <IconButton
             onClick={handleClick}
@@ -84,12 +94,12 @@ export default function Navbar() {
         </MenuItem>
         {/* <Divider /> */}
         <MenuItem>
-          {/* <Link to=""> */}
+          <Link className='link' to="/login">
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
           Salir
-          {/* </Link> */}
+          </Link>
         </MenuItem>
       </Menu>
     </React.Fragment>
