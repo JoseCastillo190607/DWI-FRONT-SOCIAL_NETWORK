@@ -23,16 +23,16 @@ const Posts = () => {
     //     i18n.changeLanguage(language);
     //   }
 
-    const [posts, setPosts] = useState([]);
-    const [photo, setPhoto] = useState("");
-    const { userdata } = useContext(GlobalContext);
-    console.log(userdata);
-    const [newPost, setNewPost] = useState({});
-    async function fetchPosts() {
-        const fetchedPosts = await getPosts();
-        console.log({ fetchedPosts });
-        setPosts(fetchedPosts);
-    }
+  const [posts, setPosts] = useState([]);
+  const [photo, setPhoto] = useState("");
+  const { userdata } = useContext(GlobalContext);
+  console.log(userdata);
+  const [newPost, setNewPost] = useState({});
+  async function fetchPosts() {
+    const fetchedPosts = await getPosts();
+    console.log({ fetchedPosts });
+    setPosts(fetchedPosts);
+  }
 
     const PostComponent = ({
         _id,
@@ -49,61 +49,58 @@ const Posts = () => {
         const [edditingPost, setEditingPost] = useState({});
         const [likepost, setLikepost] = useState(like);
 
-
         const handleEdit = () => {
             setIsEditing((current) => !current);
             setEditingPost({ _id, title, description, ubication, image, like });
         };
 
-        return (
-            <div className="post-item">
-                <center>
-                    <Card>
-                        <CardContent>
-                            <Typography
-                                className="containerContent"
-                                variant="h5"
-                                component="div"
-                            >
-                                Devstragram
-                            </Typography>
-                            <Typography
-                                sx={{ fontSize: 14 }}
-                                color="text.secondary"
-                                gutterBottom
-                            >
-                                <div className="post-grid">
-                                    <h3>
-                                        {title} <button onClick={handleEdit}>Edit</button>
-                                    </h3>
-                                    <h4>{description}</h4>
-                                    <p>
-                                        Ubication:<b>{ubication}</b>{" "}
-                                    </p>
-                                    <p>
-                                        Image: <br />
-                                        <img
-                                            src={`https://ucarecdn.com/${image}/-/resize/100x100/-/preview/`}
-                                            alt="foto tomada"
-                                        />
-                                        <div>
-                                            <button onClick={() => {
-                                                setLikepost(!likepost); setEditingPost((current) => ({
-                                                    ...current,
-                                                    like: !likepost,
-                                                }))
-                                            }} >
-                                                <b>{likepost === true ? " ❤️" : "🖤"}</b>{" "}
-                                            </button>
-                                        </div>
+    return (
+      <div className="post-item">
+        <center>
+          <Card>
+            <CardContent>
+              <Typography
+                className="containerContent"
+                variant="h5"
+                component="div"
+              >
+                Devstragram
+              </Typography>
+              <Typography
+                sx={{ fontSize: 14 }}
+                color="text.secondary"
+                gutterBottom
+              >
+                <div className="post-grid">
+                  <h3>
+                    {title} <button onClick={handleEdit}>Edit</button>
+                  </h3>
+                  <h4>{description}</h4>
+                  <p>
+                    Ubication:<b>{ubication}</b>{" "}
+                  </p>
+                  <p>
+                    Image: <br />
+                    <img
+                      src={`https://ucarecdn.com/${image}/-/resize/100x100/-/preview/`}
+                      alt="foto tomada"
+                    />
+                                    <div>
+                                                    <button onClick={()=>{setLikepost(!likepost); setEditingPost((current) => ({
+                                                        ...current,
+                                                        like: !likepost,
+                                                    }))} } >
+                                                        <b>{likepost===true ? " ❤️" : "🖤"}</b>{" "}
+                                                    </button>
+                                                </div>
 
-                                    </p>
-                                    <button
-                                        className="button-danger"
-                                        onClick={() => removePost(_id)}
-                                    >
-                                        Delete
-                                    </button>
+                  </p>
+                  <button
+                    className="button-danger"
+                    onClick={() => removePost(_id)}
+                  >
+                    Delete
+                  </button>
 
                                     {isEditing && (
                                         <div>
@@ -234,61 +231,62 @@ const Posts = () => {
                             />
                         </div>
 
-                        <div>
-                            <h3>Description</h3>
-                            <input
-                                className="input"
-                                type="text"
-                                name="description"
-                                value={newPost.description}
-                                onChange={(e) =>
-                                    setNewPost((current) => ({
-                                        ...current,
-                                        description: e.target.value,
-                                    }))
-                                }
-                            />
-                        </div>
-                        <div>
-                            <h3>Ubication </h3>
-                            <input
-                                className="input"
-                                type="text"
-                                name="title"
-                                value={newPost.ubication}
-                                onChange={(e) =>
-                                    setNewPost((current) => ({
-                                        ...current,
-                                        ubication: e.target.value,
-                                    }))
-                                }
-                            />
-                            <br />
-                            <Widget
-                                publicKey="712e3cdcf23e9fa90269"
-                                enableVideoRecording="false"
-                                tabs="file camera"
-                                onChange={(info) =>
-                                    setNewPost((current) => ({
-                                        ...current,
-                                        image: info.uuid,
-                                    }))
-                                }
-                            />
-                        </div>
-                        <CardActions>
-                            <Button
-                                className="btnPost"
-                                onClick={() => handleCreateOrUpdatePost(newPost)}
-                            >
-                                Create Post
-                            </Button>
-                        </CardActions>
-                    </center>
-                </div>
+            <div>
+              <h3>Description</h3>
+              <input
+                className="input"
+                type="text"
+                name="description"
+                value={newPost.description}
+                onChange={(e) =>
+                  setNewPost((current) => ({
+                    ...current,
+                    description: e.target.value,
+                  }))
+                }
+              />
             </div>
+            <div>
+              <h3>Ubication </h3>
+              <input
+                className="input"
+                type="text"
+                name="title"
+                value={newPost.ubication}
+                onChange={(e) =>
+                  setNewPost((current) => ({
+                    ...current,
+                    ubication: e.target.value,
+                  }))
+                }
+              />
+              <br />
+              <Widget
+              publicKey="712e3cdcf23e9fa90269"
+              enableVideoRecording="false"
+              tabs="file camera"
+              onChange={(info) => 
+                setNewPost((current) => ({
+                    ...current,
+                    image:  info.uuid,
+                }))
+            }
+            />
+            </div>
+            <button onClick={()=>{console.log(newPost)}}>log</button>
+            <CardActions>
+              <Button
+                className="btnPost"
+                onClick={() => handleCreateOrUpdatePost(newPost)}
+              >
+                Create Post
+              </Button>
+            </CardActions>
+          </center>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Posts;
