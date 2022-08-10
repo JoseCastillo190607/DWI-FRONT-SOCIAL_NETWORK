@@ -1,6 +1,8 @@
 import "./login.css";
 
 import React, { useState } from "react";
+import { useNavigate ,Link } from "react-router-dom";
+
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -13,6 +15,7 @@ import Typography from "@mui/material/Typography";
 const url = "//localhost:5000/api/register/login";
 
 export default function Login() {
+  const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [checkdata, setCheckData] = useState();
@@ -23,9 +26,13 @@ export default function Login() {
       .then((resp) => {
         let datos = resp.data;
         if (datos.err === false) {
-          console.log(resp);
+          navigate('/posts')
         } else {
-          Swal.fire({ icon: "error", title: "Opps", text: "Contraseña incorrecta" });
+          Swal.fire({
+            icon: "error",
+            title: "Opps",
+            text: "Contraseña incorrecta",
+          });
         }
       })
       .catch((err) => {
@@ -74,7 +81,9 @@ export default function Login() {
                     setCheckData({ email, pass });
                     login();
                   }}
-                >Inicia Sesion</Button>
+                >
+                  Inicia Sesion
+                </Button>
               </div>
             </form>
           </Typography>
@@ -95,9 +104,11 @@ export default function Login() {
           <label size="small">¿No tienes una cuenta?</label>
         </Typography>
         <CardActions className="btnRegister">
-          <Button className="btnRegister" size="small">
-            Registrate
-          </Button>
+          <Link to="/register">
+            <Button className="btnRegister" size="small">
+              Registrate
+            </Button>
+          </Link>
         </CardActions>
       </Card>
     </div>

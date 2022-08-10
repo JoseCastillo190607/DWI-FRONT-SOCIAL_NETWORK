@@ -2,6 +2,7 @@ import "./register.css";
 
 import React, { useState } from "react";
 import { Widget } from "@uploadcare/react-widget";
+import { useNavigate ,Link } from "react-router-dom";
 
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -15,6 +16,7 @@ import Typography from "@mui/material/Typography";
 const url = "//localhost:5000/api/register";
 
 export default function Login() {
+  const navigate = useNavigate()
   const [name, setName] = useState("");
   const [firstlastname, setFirstlastname] = useState("");
   const [secondlastname, setSecondlastname] = useState("");
@@ -25,10 +27,20 @@ export default function Login() {
   const [dataregister, setDataregister] = useState({});
 
   const register = () => {
+    
     axios
       .post(`${url}`, dataregister)
       .then((resp) => {
-        console.log(resp);
+        let data = resp.data
+        if(data.err==false){
+          navigate('/posts')
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Opps",
+            text: "Ocurrio un error",
+          });
+        }
       })
       .catch((err) => {
         Swal.fire({
@@ -101,27 +113,16 @@ export default function Login() {
                   }}
                 />
                 <div className="div-login">
-                 <img
-                    src= {`https://ucarecdn.com/${photo}/-/resize/100x100/-/preview/`}
+                  <img
+                    src={`https://ucarecdn.com/${photo}/-/resize/100x100/-/preview/`}
                     alt="foto tomada"
                   />
-                  <br/>
+                  <br />
                   <Widget
                     variant="outlined"
                     publicKey="712e3cdcf23e9fa90269"
                     enableVideoRecording="false"
                     tabs="file camera"
-                    onFileSelect={(file) => {
-                      console.log("File changed: ", file);
-                      if (file) {
-                        file.progress((info) =>
-                          console.log("File progress: ", info.progress)
-                        );
-                        file.done((info) =>
-                          console.log("File uploaded: ", info)
-                        );
-                      }
-                    }}
                     onChange={(info) => setPhoto(info.uuid)}
                   />
                 </div>
@@ -140,7 +141,6 @@ export default function Login() {
                       dateofbirth,
                       photo,
                     });
-                    console.log(dataregister);
                     register();
                   }}
                 >
@@ -166,9 +166,11 @@ export default function Login() {
           <label size="small">¿Ya tienes una cuenta?</label>
         </Typography>
         <CardActions className="btnRegister">
-          <Button className="btnRegister" size="small">
-            Inicia Sesion
-          </Button>
+          <Link to="/login">
+            <Button className="btnRegister" size="small">
+              Inicia Sesion
+            </Button>
+          </Link>
         </CardActions>
       </Card>
     </div>

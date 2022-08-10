@@ -1,16 +1,7 @@
-import './App.css';
-import Login from './components/Login/Login';
-import Register from './components/register/register'
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-       {/* <Login/> */}
-       <Register/>
-      </header> 
-    </div>
-  );
+  return <h6>Pagina no encontrada</h6>;
 }
 
 export default App;

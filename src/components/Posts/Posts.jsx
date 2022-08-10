@@ -1,6 +1,3 @@
-// import { Link } from "react-router-dom";
-// import { useTranslation } from 'react-i18next';
-// import '../Posts/Posts.css'
 import "./Posts.css";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
