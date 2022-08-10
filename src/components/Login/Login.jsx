@@ -1,9 +1,7 @@
 import "./login.css";
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -46,7 +44,13 @@ export default function Login() {
       >
         <CardContent>
           <Typography className="containerContent" variant="h5" component="div">
+          
+          <span className="corazonContainer"> <div className='like'>
+        </div> </span>
+            <div className="divDevs" width='50%'>
             Devstragram
+            </div>
+            
           </Typography>
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             <form className="form-login">
@@ -95,15 +99,9 @@ export default function Login() {
           <label size="small">¿No tienes una cuenta?</label>
         </Typography>
         <CardActions className="btnRegister">
-          {/* <div className="containerLabel-Resgistro"> */}
-          {/* <div className="" maxWidth="50%"></div>
-            <div className="" maxWidth="50%">
-              {" "}
-            </div> */}
           <Button className="btnRegister" size="small">
             Registrate
           </Button>
-          {/* </div> */}
         </CardActions>
       </div>
     </div>
