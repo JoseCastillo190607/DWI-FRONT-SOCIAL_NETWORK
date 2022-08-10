@@ -40,16 +40,19 @@ const Posts = () => {
         description,
         ubication,
         image,
+        like,
         updatedAt,
         removePost,
         handleCreateOrUpdatePost,
     }) => {
         const [isEditing, setIsEditing] = useState(false);
         const [edditingPost, setEditingPost] = useState({});
+        const [likepost, setLikepost] = useState(like);
+
 
         const handleEdit = () => {
             setIsEditing((current) => !current);
-            setEditingPost({ _id, title, description, ubication, image});
+            setEditingPost({ _id, title, description, ubication, image, like});
         };
 
         return (
@@ -70,6 +73,15 @@ const Posts = () => {
                                         Ubication:<b>{ubication}</b>{" "}
                                     </p>
                                     <p>Image: {image}</p>
+                                    <div>
+                                                    <button onClick={()=>{setLikepost(!likepost); setEditingPost((current) => ({
+                                                        ...current,
+                                                        like: !likepost,
+                                                    }))} } >
+                                                        <b>{likepost===true ? " ❤️" : "🖤"}</b>{" "}
+                                                    </button>
+                                                </div>
+
                                     <button className="button-danger" onClick={() => removePost(_id)}>
                                         Delete
                                     </button>
@@ -167,6 +179,10 @@ const Posts = () => {
         fetchPosts();
     };
 
+    useEffect(() => {
+       console.log(newPost)
+    }, [newPost])
+
     return (
         <div>
             <div className="post-list">
@@ -187,7 +203,9 @@ const Posts = () => {
                             publicKey="712e3cdcf23e9fa90269"
                             enableVideoRecording='false'
                             tabs="file camera"
-                            onChange={(info) => setPhoto(info.uuid)}
+                            onChange={(info) => {setPhoto(info.uuid);
+                                setNewPost((current) => ({ ...current, image: info.name }))
+                            }}
                         />
                         <div>
                             <h3>Title </h3>
