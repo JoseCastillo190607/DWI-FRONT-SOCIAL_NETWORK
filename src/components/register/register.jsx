@@ -1,8 +1,9 @@
 import "./register.css";
 
-import React, { useState } from "react";
+import React, { useContext,useState } from "react";
 import { Widget } from "@uploadcare/react-widget";
 import { useNavigate ,Link } from "react-router-dom";
+import { GlobalContext } from '../../context/global-context'
 
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -25,6 +26,7 @@ export default function Login() {
   const [dateofbirth, setDateofbirth] = useState("");
   const [photo, setPhoto] = useState("");
   const [dataregister, setDataregister] = useState({});
+  const {handleUser} = useContext(GlobalContext);
 
   const register = () => {
     
@@ -32,7 +34,8 @@ export default function Login() {
       .post(`${url}`, dataregister)
       .then((resp) => {
         let data = resp.data
-        if(data.err==false){
+        if(data.err===false){
+          handleUser(dataregister)
           navigate('/posts')
         } else {
           Swal.fire({
@@ -141,6 +144,7 @@ export default function Login() {
                       dateofbirth,
                       photo,
                     });
+                    setTimeout(3000);
                     register();
                   }}
                 >

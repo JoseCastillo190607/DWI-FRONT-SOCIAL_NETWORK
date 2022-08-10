@@ -11,6 +11,7 @@ export async function getPosts() {
 
 export async function createPost(post) {
   try {
+    console.log("POST: ",post)
     const response = await fetch(API_URL, {
       method: "POST",
       headers: {

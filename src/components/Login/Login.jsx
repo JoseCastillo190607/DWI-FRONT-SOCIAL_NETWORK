@@ -1,8 +1,8 @@
 import "./login.css";
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate ,Link } from "react-router-dom";
-
+import { GlobalContext } from '../../context/global-context'
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -19,6 +19,7 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [checkdata, setCheckData] = useState();
+  const {handleUser} = useContext(GlobalContext)
 
   const login = () => {
     axios
@@ -26,6 +27,7 @@ export default function Login() {
       .then((resp) => {
         let datos = resp.data;
         if (datos.err === false) {
+          handleUser(datos)
           navigate('/posts')
         } else {
           Swal.fire({
