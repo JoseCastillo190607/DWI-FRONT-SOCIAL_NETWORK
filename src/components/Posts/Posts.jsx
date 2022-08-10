@@ -23,7 +23,6 @@ const Posts = () => {
   //   }
 
   const [posts, setPosts] = useState([]);
-  const [photo, setPhoto] = useState("");
   const { userdata } = useContext(GlobalContext);
   console.log(userdata);
   const [newPost, setNewPost] = useState({});
@@ -39,15 +38,14 @@ const Posts = () => {
     description,
     ubication,
     image,
-        like,
+    like,
     updatedAt,
     removePost,
     handleCreateOrUpdatePost,
   }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [edditingPost, setEditingPost] = useState({});
-        const [likepost, setLikepost] = useState(like);
-
+    const [likepost, setLikepost] = useState(like);
 
     const handleEdit = () => {
       setIsEditing((current) => !current);
@@ -85,15 +83,19 @@ const Posts = () => {
                       src={`https://ucarecdn.com/${image}/-/resize/100x100/-/preview/`}
                       alt="foto tomada"
                     />
-                                    <div>
-                                                    <button onClick={()=>{setLikepost(!likepost); setEditingPost((current) => ({
-                                                        ...current,
-                                                        like: !likepost,
-                                                    }))} } >
-                                                        <b>{likepost===true ? " ❤️" : "🖤"}</b>{" "}
-                                                    </button>
-                                                </div>
-
+                    <div>
+                      <button
+                        onClick={() => {
+                          setLikepost(!likepost);
+                          setEditingPost((current) => ({
+                            ...current,
+                            like: !likepost,
+                          }));
+                        }}
+                      >
+                        <b>{likepost === true ? " ❤️" : "🖤"}</b>{" "}
+                      </button>
+                    </div>
                   </p>
                   <button
                     className="button-danger"
@@ -189,7 +191,7 @@ const Posts = () => {
   const handleCreateOrUpdatePost = async (post) => {
     if (!post._id) {
       await createPost(post);
-      setNewPost({ title: "", description: "", ubication: "" ,image: ""});
+      setNewPost({ title: "", description: "", ubication: "", image: "" });
       fetchPosts();
       return;
     }
@@ -262,18 +264,24 @@ const Posts = () => {
               />
               <br />
               <Widget
-              publicKey="712e3cdcf23e9fa90269"
-              enableVideoRecording="false"
-              tabs="file camera"
-              onChange={(info) => 
-                setNewPost((current) => ({
+                publicKey="712e3cdcf23e9fa90269"
+                enableVideoRecording="false"
+                tabs="file camera"
+                onChange={(info) =>
+                  setNewPost((current) => ({
                     ...current,
-                    image:  info.uuid,
-                }))
-            }
-            />
+                    image: info.uuid,
+                  }))
+                }
+              />
             </div>
-            <button onClick={()=>{console.log(newPost)}}>log</button>
+            <button
+              onClick={() => {
+                console.log(newPost);
+              }}
+            >
+              log
+            </button>
             <CardActions>
               <Button
                 className="btnPost"
