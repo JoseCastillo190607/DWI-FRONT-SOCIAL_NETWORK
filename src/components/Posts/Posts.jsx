@@ -16,6 +16,8 @@ import {
     createPost,
     updatePost,
     deletePost,
+  completePost,
+
 } from "../../api/posts-api";
 
 const Posts = () => {
@@ -27,9 +29,9 @@ const Posts = () => {
     //   }
 
     const [posts, setPosts] = useState([]);
-    const [photo,setPhoto] = useState("");
-
-    const [newPost, setNewPost] = useState({});
+    const [photo, setPhoto] = useState("");
+  const [newPost, setNewPost] = useState({});
+  const [likepost, setLike] = useState(0);
 
     async function fetchPosts() {
         const fetchedPosts = await getPosts();
@@ -37,12 +39,16 @@ const Posts = () => {
         setPosts(fetchedPosts);
     }
 
+    
+
     const PostComponent = ({
         _id,
         title,
         description,
         ubication,
         image,
+        like,
+        togglePost,
         updatedAt,
         removePost,
         handleCreateOrUpdatePost,
@@ -52,13 +58,14 @@ const Posts = () => {
 
         const handleEdit = () => {
             setIsEditing((current) => !current);
-            setEditingPost({ _id, title, description, ubication, image});
+            setEditingPost({ _id, title, description, ubication, image, like });
         };
 
         return (
-            <div className="post-item">
+            <div className="post-item" style={{ paddingTop: "1%", paddingBottom: "1%" }}>
                 <center>
-                    <Card>
+                    <Card className="containerLogin"
+                        sx={{ minWidth: 275, height: 570, width: 350 }}>
                         <CardContent>
                             <Typography className="containerContent" variant="h5" component="div">
                                 Devstragram
@@ -66,16 +73,23 @@ const Posts = () => {
                             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                                 <div className="post-grid">
                                     <h3>
-                                        {title} <button onClick={handleEdit}>Edit</button>
+                                        {title}
                                     </h3>
                                     <h4>{description}</h4>
                                     <p>
                                         Ubication:<b>{ubication}</b>{" "}
                                     </p>
                                     <p>Image: {image}</p>
-                                    <button className="button-danger" onClick={() => removePost(_id)}>
+                                    <div>
+                                                    <button onClick={()=>{if(likepost===0){setLike(1)}else{setLike(0)}} } >
+                                                        <b>{like===1 ? " ❤️" : "🖤"}</b>{" "}
+                                                    </button>
+                                                </div>
+
+                                    <Button className="button-danger" onClick={() => removePost(_id)}>
                                         Delete
-                                    </button>
+                                    </Button>
+                                    <Button onClick={handleEdit}>Edit</Button>
 
                                     {isEditing && (
                                         <div>
@@ -119,23 +133,36 @@ const Posts = () => {
                                             </div>
                                             <div>
                                                 <h3>Image </h3>
-                                                <input
-                                                    className="input"
-                                                    type="text"
-                                                    name="image"
-                                                    value={newPost.image}
-                                                    onChange={(e) =>
-                                                        setEditingPost((current) => ({ ...current, image: e.target.value }))
-                                                    }
-                                                />
+                                                <div>
+                                                    <Widget
+                                                        variant="outlined"
+                                                        publicKey="712e3cdcf23e9fa90269"
+                                                        enableVideoRecording="false"
+                                                        tabs="file camera"
+                                                        onFileSelect={(file) => {
+                                                            console.log("File changed: ", file);
+                                                            if (file) {
+                                                                file.progress((info) =>
+                                                                    console.log("File progress: ", info.progress)
+                                                                );
+                                                                file.done((info) =>
+                                                                    console.log("File uploaded: ", info)
+                                                                );
+                                                            }
+                                                        }}
+                                                        onChange={(info) => setPhoto(info.uuid)}
+                                                    />
+                                                </div>
+
+                                                
                                             </div>
 
-                                            <button
-                                                className="button-primary"
+                                            <Button
+                                                className="btnPost"
                                                 onClick={() => handleCreateOrUpdatePost(edditingPost)}
                                             >
                                                 Update Post
-                                            </button>
+                                            </Button>
                                         </div>
                                     )}
                                 </div>
@@ -156,6 +183,10 @@ const Posts = () => {
         fetchPosts();
     };
 
+    const toggleCompleted = async (id) => {
+        await completePost(id);
+        fetchPosts();
+    };
 
     const handleCreateOrUpdatePost = async (post) => {
         if (!post._id) {
@@ -182,16 +213,11 @@ const Posts = () => {
                             {...post}
                             handleCreateOrUpdatePost={handleCreateOrUpdatePost}
                             removePost={removePost}
+                            togglePost={toggleCompleted}
                         />
                     ))}
                 <div className="posts-create">
                     <center>
-                        <Widget
-                            publicKey="712e3cdcf23e9fa90269"
-                            enableVideoRecording='false'
-                            tabs="file camera"
-                            onChange={(info) => setPhoto(info.uuid)}
-                        />
                         <div>
                             <h3>Title </h3>
                             <input
@@ -230,6 +256,26 @@ const Posts = () => {
                                 onChange={(e) =>
                                     setNewPost((current) => ({ ...current, ubication: e.target.value }))
                                 }
+                            />
+                        </div>
+                        <div>
+                            <Widget
+                                variant="outlined"
+                                publicKey="712e3cdcf23e9fa90269"
+                                enableVideoRecording="false"
+                                tabs="file camera"
+                                onFileSelect={(file) => {
+                                    console.log("File changed: ", file);
+                                    if (file) {
+                                        file.progress((info) =>
+                                            console.log("File progress: ", info.progress)
+                                        );
+                                        file.done((info) =>
+                                            console.log("File uploaded: ", info)
+                                        );
+                                    }
+                                }}
+                                onChange={(info) => setPhoto(info.uuid)}
                             />
                         </div>
                         <CardActions>

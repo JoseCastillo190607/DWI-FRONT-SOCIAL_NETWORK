@@ -40,6 +40,18 @@ export async function updatePost(id, post) {
 }
 
 
+export async function completePost(id) {
+  try {
+    const response = await fetch(`${API_URL}/complete/${id}`, {
+      method: "PATCH",
+    });
+    return response.json();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
 // export async function deletePost(id) {
 //   try {
 //     const response = await fetch(`${API_URL}/delete/${id}`, {
