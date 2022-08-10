@@ -39,16 +39,19 @@ const Posts = () => {
     description,
     ubication,
     image,
+        like,
     updatedAt,
     removePost,
     handleCreateOrUpdatePost,
   }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [edditingPost, setEditingPost] = useState({});
+        const [likepost, setLikepost] = useState(like);
+
 
     const handleEdit = () => {
       setIsEditing((current) => !current);
-      setEditingPost({ _id, title, description, ubication, image });
+      setEditingPost({ _id, title, description, ubication, image, like });
     };
 
     return (
@@ -82,6 +85,15 @@ const Posts = () => {
                       src={`https://ucarecdn.com/${image}/-/resize/100x100/-/preview/`}
                       alt="foto tomada"
                     />
+                                    <div>
+                                                    <button onClick={()=>{setLikepost(!likepost); setEditingPost((current) => ({
+                                                        ...current,
+                                                        like: !likepost,
+                                                    }))} } >
+                                                        <b>{likepost===true ? " ❤️" : "🖤"}</b>{" "}
+                                                    </button>
+                                                </div>
+
                   </p>
                   <button
                     className="button-danger"
