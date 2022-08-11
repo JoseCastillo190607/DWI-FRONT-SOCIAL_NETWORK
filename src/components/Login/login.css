@@ -9,6 +9,8 @@
     -ms-transform: rotate(45);
     -o-transform: rotate(45);
     margin: 20px auto;
+    margin-top: -20px;
+    margin-left: -30px;
     position: relative;
     border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -88,8 +90,11 @@
 }
 
 .divDevs {
-    margin-left: 15px;
+    margin-left: -10px;
     padding-top: 15px;
+    margin-bottom: -20px;
+
+
 }
 
 .label-correo  {
@@ -106,8 +111,9 @@
 .input-correo {
     padding: 9px 0px 7px 8px;
     margin-bottom: 13px;
+    margin-left: -10px;
     margin-top: 8px;
-    width: 250px;
+    width: 20px;
     height: 20px;
     color: #000;
   background-color: rgba(255, 255, 255, 0.2);
@@ -136,6 +142,7 @@
 .input-password  {
   padding: 9px 0px 7px 8px;
   margin-bottom: 20px;
+  margin-left: -10px;
   width: 250px;
   height: 20px;
     color: #000;
@@ -168,6 +175,7 @@
 .btnLogin  {
   border-radius: 4px;
   align-items: center;
+  margin-left: -10px;
     height: 30px;
   width: 250px;
     font-weight: bold;
@@ -193,7 +201,11 @@
       align-items: center;
 }
 
-.labelRegistro {
+.labelRegistrologin {
     padding-top: 14px;
     padding-left: 40px;
+}
+
+.linkRegister{
+    text-decoration: none;
 }

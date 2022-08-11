@@ -47,21 +47,29 @@ export default function Login() {
   };
 
   return (
-    <div style={{ paddingTop: "1%", paddingBottom: "1%" }}>
-      <Card
-        className="containerLogin"
+    <>
+    {/* // <div style={{ paddingTop: "1%", paddingBottom: "1%" }}> */}
+      <div
+        className="containerRegister"
         sx={{ minWidth: 275, height: 700, width: 350 }}
       >
         <CardContent>
           <Typography className="containerContent" variant="h5" component="div">
-            Devstragram
+          <div className="containerLogo">
+          <div className="divDevs" width='50%'>
+          <span className="corazonContainer"> <div className='like'>
+        </div> </span>
+        </div></div><div className="divDevs" width='50%'>
+             Devstagram
+             </div>
+             
           </Typography>
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             <form className="form-login">
               <div className="div-login">
                 <input
                   className="input-correo"
-                  placeholder={("name")}
+                  placeholder={"name"}
                   type="text"
                   onChange={(event) => {
                     setDataregister((current) => ({
@@ -72,7 +80,7 @@ export default function Login() {
                 />
                 <input
                   className="input-password"
-                  placeholder={("f_lastname")}
+                  placeholder={"f_lastname"}
                   type="text"
                   onChange={(event) => {
                     setDataregister((current) => ({
@@ -83,7 +91,7 @@ export default function Login() {
                 />
                 <input
                   className="input-correo"
-                  placeholder={("s_lastname")}
+                  placeholder={"s_lastname"}
                   type="text"
                   onChange={(event) => {
                     setDataregister((current) => ({
@@ -94,7 +102,7 @@ export default function Login() {
                 />
                 <input
                   className="input-correo"
-                  placeholder={("email")}
+                  placeholder={"email"}
                   type="email"
                   onChange={(event) => {
                     setDataregister((current) => ({
@@ -105,7 +113,7 @@ export default function Login() {
                 />
                 <input
                   className="input-correo"
-                  placeholder={("password")}
+                  placeholder={"password"}
                   type="password"
                   onChange={(event) => {
                     setDataregister((current) => ({
@@ -116,7 +124,7 @@ export default function Login() {
                 />
                 <input
                   className="input-correo"
-                  placeholder={("birth")}
+                  placeholder={"birth"}
                   type="date"
                   onChange={(event) => {
                     setDataregister((current) => ({
@@ -126,19 +134,19 @@ export default function Login() {
                   }}
                 />
                 <div className="div-login">
-                  <img
+                  <img className="imgRegister" width='110px' 
                     src={`https://ucarecdn.com/${photo}/-/resize/100x100/-/preview/`}
                     alt="foto tomada"
                   />
                   <br />
-                  <Widget
+                  <Widget className="btnImg"
                     variant="outlined"
                     publicKey="712e3cdcf23e9fa90269"
                     enableVideoRecording="false"
                     tabs="file camera"
-                    onFileSelect={(info)=>{
-                      if(info){
-                        info.done(file=>setPhoto(file.uuid))
+                    onFileSelect={(info) => {
+                      if (info) {
+                        info.done((file) => setPhoto(file.uuid));
                       }
                     }}
                     onChange={(info) =>
@@ -151,25 +159,25 @@ export default function Login() {
                 </div>
               </div>
               <br />
-              <div className="div-login">
+              <div className="div-div-loginBtn">
                 <Button
-                  className="btnLogin"
+                  className="div-loginBtn"
                   onClick={() => {
                     register();
                   }}
                 >
-                  {("sign")}
+                  {"sign"}
                 </Button>
               </div>
             </form>
           </Typography>
         </CardContent>
-      </Card>
+      </div>
 
-      <Card
+      <div
         className="containerRegister"
         size="small"
-        sx={{ minWidth: 275, height: 63, width: 350 }}
+        sx={{ height: 63, width: 350 }}
       >
         <Typography
           className="labelRegistro"
@@ -177,16 +185,17 @@ export default function Login() {
           sx={{ mb: 1.5 }}
           color="text.secondary"
         >
-          <label size="small">{("question")}</label>
+          <label size="small">{"question"}</label>
         </Typography>
         <CardActions className="btnRegister">
-          <Link to="/login">
+          <Link className="linkLogin" to="/login">
             <Button className="btnRegister" size="small">
               Inicia Sesion
             </Button>
           </Link>
         </CardActions>
-      </Card>
-    </div>
+      </div>
+    {/* </div> */}
+    </>
   );
 }

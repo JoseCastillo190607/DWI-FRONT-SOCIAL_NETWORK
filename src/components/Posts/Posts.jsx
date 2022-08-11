@@ -70,7 +70,7 @@ const Posts = () => {
                     <Avatar sx={{ width: 50, height: 50 }}>{userdata.name}</Avatar>
                     </div>
                     <div className="titlePost">
-                      <span className="spanTitle">{userdata.name} {userdata.firstlastname} {userdata.secondlastname}</span>
+                      <span className="spanTitle">{userdata.name}{userdata.firstlastname}{userdata.secondlastname}</span>
                       <span className="spanTitle">{title}</span>
                       <span className="spanUbication">
                       <b>{ubication}</b><PlaceIcon color="secondary" className="iconUbi" />{" "}  
@@ -306,14 +306,14 @@ const Posts = () => {
               >
                 log
               </button>
-              <CardActions>
+              {/* <CardActions>
                 <Button
                   className="btnPost"
                   onClick={() => handleCreateOrUpdatePost(newPost)}
                 >
                   Create Post
                 </Button>
-              </CardActions>
+              </CardActions> */}
             </center>
           </div>
         </div>

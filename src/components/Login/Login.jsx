@@ -50,13 +50,12 @@ export default function Login() {
       >
         <CardContent>
           <Typography className="containerContent" variant="h5" component="div">
-          
+            <div className="divDevs" width='50%'>
           <span className="corazonContainer"> <div className='like'>
         </div> </span>
-            <div className="divDevs" width='50%'>
-            Devstagram
+        </div><div className="divDevs" width='50%'>
+             Devstagram
             </div>
-            
           </Typography>
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             <form className="form-login">
@@ -74,7 +73,7 @@ export default function Login() {
                 <input
                   className="input-password"
                   type="password"
-                  placeholder={("password")}
+                  placeholder="Contraseña"
                   onChange={(event) => {
                     setCheckData((current) => ({
                       ...current,
@@ -105,15 +104,15 @@ export default function Login() {
         sx={{ minWidth: 275, height: 63, width: 350 }}
       >
         <Typography
-          className="labelRegistro"
+          className="labelRegistrologin"
           variant="body2"
           sx={{ mb: 1.5 }}
           color="text.secondary"
         >
-          <label size="small">{("neg_question")}</label>
+          <label size="small">¿No tienes una cuenta?</label>
         </Typography>
         <CardActions className="btnRegister">
-          <Link to="/register">
+          <Link className="linkRegister" to="/register">
             <Button className="btnRegister" size="small">
               Registrate
             </Button>
