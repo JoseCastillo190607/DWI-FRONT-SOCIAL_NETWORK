@@ -20,5 +20,6 @@
     "change_pass": "Change password",
     "actual_pass": "Enter actual password",
     "new_pass": "Enter new password",
-    "confirm_pass": "Confirm password"
+    "confirm_pass": "Confirm password",
+    "anonymous": "Anonymous"
 }

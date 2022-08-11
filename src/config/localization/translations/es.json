@@ -20,5 +20,6 @@
     "change_pass": "Cambiar contraseña",
     "actual_pass": "Ingresar contraseña actual",
     "new_pass": "Ingresar nueva contraseña",
-    "confirm_pass": "Confirmar contraseña"
+    "confirm_pass": "Confirmar contraseña",
+    "anonymous": "Anónimo"
 }

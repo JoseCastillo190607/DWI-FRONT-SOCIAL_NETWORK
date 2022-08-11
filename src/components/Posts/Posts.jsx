@@ -74,8 +74,7 @@ const Posts = () => {
                     </div>
                     <div className="titlePost">
                       <span className="spanTitle">
-                        {userdata.name} {userdata.firstlastname}{" "}
-                        {userdata.secondlastname}
+                      <span><i className="author">{t("anonymous")}</i></span>
                       </span>
                       <span className="spanTitle">{title}</span>
                       <span className="spanUbication">
