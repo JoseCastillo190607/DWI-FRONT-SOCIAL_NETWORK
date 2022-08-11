@@ -1,22 +1,21 @@
-import React , {createContext,useState} from "react";
+import React, { createContext, useState } from "react";
 
 const initialuserdata = {
-    userdata: {}
-}
+  userdata: {},
+};
 
-export const GlobalContext = createContext(initialuserdata)
+export const GlobalContext = createContext(initialuserdata);
 
-export const GlobalProvider = ({children}) =>{
+export const GlobalProvider = ({ children }) => {
+  const [userdata, setUserData] = useState({});
 
-    const [userdata,setUserData] = useState({}) 
+  const handleUser = (item) => {
+    setUserData(item);
+  };
 
-    const handleUser = item =>{
-        setUserData(item)
-    }
-
-    return (
-        <GlobalContext.Provider value={{ userdata, handleUser }}>
-          {children}
-        </GlobalContext.Provider>
-      );
-}
+  return (
+    <GlobalContext.Provider value={{ userdata, handleUser }}>
+      {children}
+    </GlobalContext.Provider>
+  );
+};

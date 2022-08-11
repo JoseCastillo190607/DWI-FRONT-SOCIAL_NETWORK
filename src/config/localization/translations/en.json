@@ -1,0 +1,12 @@
+{
+  "name": "Name",
+  "f_lastname": "First lastname",
+  "s_lastname": "Second lastname",
+  "email": "Email",
+  "password": "Password",
+  "birth": "Date of birth",
+  "sign": "Sign Up",
+  "question": "Do you already have an account?",
+  "login": "Log In",
+  "neg_question": "Don't you have an account?"
+}

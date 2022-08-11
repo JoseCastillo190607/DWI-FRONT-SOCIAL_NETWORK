@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api/posts";
+const API_URL = "https://dewin007.herokuapp.com/api/posts";
 
 export async function getPosts() {
   try {
@@ -11,7 +11,7 @@ export async function getPosts() {
 
 export async function createPost(post) {
   try {
-    console.log("POST: ",post)
+    console.log("POST: ", post);
     const response = await fetch(API_URL, {
       method: "POST",
       headers: {
@@ -40,19 +40,6 @@ export async function updatePost(id, post) {
   }
 }
 
-
-export async function completePost(id) {
-  try {
-    const response = await fetch(`${API_URL}/complete/${id}`, {
-      method: "PATCH",
-    });
-    return response.json();
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-
 // export async function deletePost(id) {
 //   try {
 //     const response = await fetch(`${API_URL}/delete/${id}`, {
@@ -74,7 +61,3 @@ export async function deletePost(id) {
     console.log(error);
   }
 }
-
-
-
-

@@ -5,14 +5,12 @@ import { useNavigate, Link } from "react-router-dom";
 import { GlobalContext } from "../../context/global-context";
 import axios from "axios";
 import Swal from "sweetalert2";
-
-import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
-const url = "//localhost:5000/api/register/login";
+const url = "https://dewin007.herokuapp.com/api/register/login";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -46,13 +44,21 @@ export default function Login() {
 
   return (
     <div>
-      <Card
+      <div
         className="containerLogin"
         sx={{ minWidth: 275, height: 396, width: 350 }}
       >
         <CardContent>
           <Typography className="containerContent" variant="h5" component="div">
-            Devstragram
+            <div className="divDevs" width="50%">
+              <span className="corazonContainer">
+                {" "}
+                <div className="like"></div>{" "}
+              </span>
+            </div>
+            <div className="divDevs" width="50%">
+              Devstagram
+            </div>
           </Typography>
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             <form className="form-login">
@@ -93,15 +99,15 @@ export default function Login() {
             </form>
           </Typography>
         </CardContent>
-      </Card>
+      </div>
 
-      <Card
+      <div
         className="containerRegister"
         size="small"
         sx={{ minWidth: 275, height: 63, width: 350 }}
       >
         <Typography
-          className="labelRegistro"
+          className="labelRegistrologin"
           variant="body2"
           sx={{ mb: 1.5 }}
           color="text.secondary"
@@ -109,13 +115,13 @@ export default function Login() {
           <label size="small">¿No tienes una cuenta?</label>
         </Typography>
         <CardActions className="btnRegister">
-          <Link to="/register">
+          <Link className="linkRegister" to="/register">
             <Button className="btnRegister" size="small">
               Registrate
             </Button>
           </Link>
         </CardActions>
-      </Card>
+      </div>
     </div>
   );
 }
