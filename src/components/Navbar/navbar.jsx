@@ -66,8 +66,11 @@ export default function Navbar() {
               aria-haspopup="true"
               aria-expanded={open ? "true" : undefined}
             >
-              <Avatar sx={{ width: 32, height: 32 }}><img src={`https://ucarecdn.com/${userdata.photo}/-/resize/50x50/-/preview/`}
-/></Avatar>
+              <Avatar sx={{ width: 32, height: 32 }}>
+                <img
+                  src={`https://ucarecdn.com/${userdata.photo}/-/resize/50x50/-/preview/`}
+                />
+              </Avatar>
             </IconButton>
           </Tooltip>
         </Box>
@@ -106,14 +109,13 @@ export default function Navbar() {
           transformOrigin={{ horizontal: "right", vertical: "top" }}
           anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
         >
-          <MenuItem>
+          {/* <MenuItem>
             <Avatar /> Editar Cuenta
-          </MenuItem>
+          </MenuItem> */}
           <MenuItem>
             <div>
               {" "}
               <Link className="link" to="/cambiarPass">
-                <Avatar />
                 <div style={{ width: "30%" }}>Cambiar Contraseña</div>
               </Link>
             </div>
