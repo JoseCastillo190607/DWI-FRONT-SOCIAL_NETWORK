@@ -53,6 +53,7 @@ const Posts = () => {
         image,
         like,
         updatedAt,
+        date,
         removePost,
         handleCreateOrUpdatePost,
     }) => {
@@ -62,7 +63,7 @@ const Posts = () => {
 
         const handleEdit = () => {
             setIsEditing((current) => !current);
-            setEditingPost({ _id, title, description, ubication, image, like });
+            setEditingPost({ _id, title, description, ubication, image, like, date });
         };
 
     return (
@@ -88,10 +89,14 @@ const Posts = () => {
                   </h3>
                   <h4>{description}</h4>
                   <p>
-                    Ubication:<b>{ubication}</b>{" "}
+                    Ubication:<b>{ubication}</b>
                   </p>
                   <p>
-                    Image: <br />
+                  Time: {date}
+                  </p>
+                  <p>
+                    <i>Image: </i>
+                    <br/>
                     <img
                       src={`https://ucarecdn.com/${image}/-/resize/100x100/-/preview/`}
                       alt="foto tomada"
@@ -285,7 +290,6 @@ const Posts = () => {
             }
             />
             </div>
-            <button onClick={()=>{console.log(newPost)}}>log</button>
             <CardActions>
               <Button
                 className="btnPost"
