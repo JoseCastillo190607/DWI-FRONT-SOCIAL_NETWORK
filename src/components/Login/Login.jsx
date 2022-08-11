@@ -25,7 +25,7 @@ export default function Login() {
       .then((resp) => {
         let datos = resp.data;
         if (datos.err === false) {
-          handleUser(datos);
+          handleUser(datos.userdata);
           navigate("/posts");
         } else {
           Swal.fire({
