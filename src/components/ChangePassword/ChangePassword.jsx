@@ -6,37 +6,33 @@ import Typography from "@mui/material/Typography";
 import axios from "axios";
 import { GlobalContext } from "../../context/global-context";
 import Swal from "sweetalert2";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
-const url = "//localhost:5000/api/register";
+const url = "https://dewin007.herokuapp.com/api/register";
 
 export default function ChangePassword() {
-
   const navigate = useNavigate();
 
   const { userdata } = useContext(GlobalContext);
-
   const [datapass, setDatapass] = useState({});
 
   function coincidir() {
     if (datapass.passnew === datapass.passcon) {
-      console.log("pass correcta");
       axios.put(`${url}?iduser=${userdata._id}`, datapass).then((item) => {
-        if(item.err===true){
+        if (item.err === true) {
           Swal.fire({
             icon: "error",
             title: "Opps",
             text: "Ocurrio un error!, la contraseña no se cambio",
           });
-        }
-        else{
+        } else {
           Swal.fire({
             icon: "success",
             title: "Felicidades",
             text: "La contraseña se ha actualizado",
-            timer:3000,
+            timer: 3000,
           });
-          navigate('/posts')
+          navigate("/posts");
         }
       });
     } else {

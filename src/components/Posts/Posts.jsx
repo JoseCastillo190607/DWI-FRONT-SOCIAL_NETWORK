@@ -11,7 +11,7 @@ import Navbar from "../Navbar/navbar";
 import edit from "./images/edit.png";
 import PlaceIcon from "@mui/icons-material/Place";
 import { Avatar } from "@mui/material";
-import detele from "./images/delete.png" 
+import detele from "./images/delete.png";
 
 import {
   getPosts,
@@ -45,6 +45,7 @@ const Posts = () => {
     ubication,
     image,
     like,
+    username,
     updatedAt,
     removePost,
     handleCreateOrUpdatePost,
@@ -65,56 +66,67 @@ const Posts = () => {
             <CardContent>
               <div sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                 <div className="post-grid">
-                  <div className="headerPost">   
+                  <div className="headerPost">
                     <div>
-                    <Avatar sx={{ width: 50, height: 50 }}>{userdata.name}</Avatar>
+                      {/* <Avatar sx={{ width: 50, height: 50 }}>{userdata.name}</Avatar> */}
                     </div>
                     <div className="titlePost">
-                      <span className="spanTitle">{userdata.name}{userdata.firstlastname}{userdata.secondlastname}</span>
+                      <span className="spanTitle">
+                        {userdata.name} {userdata.firstlastname}{" "}
+                        {userdata.secondlastname}
+                      </span>
                       <span className="spanTitle">{title}</span>
                       <span className="spanUbication">
-                      <b>{ubication}</b><PlaceIcon color="secondary" className="iconUbi" />{" "}  
+                        <b>{ubication}</b>
+                        <PlaceIcon color="secondary" className="iconUbi" />{" "}
                       </span>
-                      <span className="spanUbication">Agosto 11, 2022</span>
+                      <span className="spanUbication">{}</span>
                     </div>
-                    <div className="editButton">
+                    <img
+                      width="30px"
+                      className="btnDelete"
+                      onClick={() => removePost(_id)}
+                      src={detele}
+                    />
+                    {/* <div className="editButton">
                       <img src={edit} width="40px" onClick={handleEdit}></img>
-                    </div>
+                    </div> */}
                   </div>
 
                   {/* <h4>{description}</h4> */}
                   <div className="imagenContainer">
-                  
-                    <img className="imagenPosts" style={{width:'600', height:'700'}}
+                    <img
+                      className="imagenPosts"
+                      style={{ width: "600", height: "700" }}
                       src={`https://ucarecdn.com/${image}/-/resize/370x487/-/preview/`}
                       alt="foto tomada"
                     />
-                    
                   </div>
                   <div className="descriptionPost">
                     <div>
-                    {/* <Avatar sx={{ width: 50, height: 50 }}>{userdata.name}</Avatar> */}
-                    <span className="btnLikeContainer">
-                        <img width="30px" className="btnDelete"
-                        onClick={() => removePost(_id)} src={detele}/>
-                     </span>
+                      {/* <Avatar sx={{ width: 50, height: 50 }}>{userdata.name}</Avatar> */}
+                      <span className="btnLikeContainer">
+                        {/* <img width="30px" className="btnDelete"
+                        onClick={() => removePost(_id)} src={detele}/> */}
+                      </span>
                     </div>
                     <span>
-                    <div className="titlePost">
-                      <span className="btnLikeContainer">
-                        <button className="btnLike"
-                          onClick={() => {
-                            setLikepost(!likepost);
-                            setEditingPost((current) => ({
-                              ...current,
-                              like: !likepost,
-                            }));
-                          }}
-                        >
-                        {likepost === true ? " ❤️" : "🖤"}{" "}
-                        </button>
-                      </span>
-                      {/* <span className="btnLikeContainer">
+                      <div className="titlePost">
+                        <span className="btnLikeContainer">
+                          <button
+                            className="btnLike"
+                            onClick={() => {
+                              setLikepost(!likepost);
+                              setEditingPost((current) => ({
+                                ...current,
+                                like: !likepost,
+                              }));
+                            }}
+                          >
+                            {likepost === true ? " ❤️" : "🖤"}{" "}
+                          </button>
+                        </span>
+                        {/* <span className="btnLikeContainer">
                         <img width="30px" className="btnDelete"
                         onClick={() => removePost(_id)} src={detele}/>
                      </span> */}
@@ -124,11 +136,11 @@ const Posts = () => {
                       {/* <img src={edit} width="40px" onClick={handleEdit}></img> 
                     
                   </div> */}
-                  <div>
-                  <span  className="spanTitle">{description}</span>
-</div>
+                    <div>
+                      <span className="spanTitle">{description}</span>
+                    </div>
                   </div>
-                  
+
                   {isEditing && (
                     <div>
                       <h3>Title</h3>
@@ -145,19 +157,19 @@ const Posts = () => {
                         }
                       />
                       <div>
-                      <h3>Description</h3>
-                      <input
-                        className="input"
-                        type="text"
-                        name="description"
-                        value={edditingPost.description}
-                        onChange={(e) =>
-                          setEditingPost((current) => ({
-                            ...current,
-                            description: e.target.value,
-                          }))
-                        }
-                      />
+                        <h3>Description</h3>
+                        <input
+                          className="input"
+                          type="text"
+                          name="description"
+                          value={edditingPost.description}
+                          onChange={(e) =>
+                            setEditingPost((current) => ({
+                              ...current,
+                              description: e.target.value,
+                            }))
+                          }
+                        />
                       </div>
                       <div>
                         <h3>Ubication </h3>
@@ -299,21 +311,14 @@ const Posts = () => {
                   }
                 />
               </div>
-              <button
-                onClick={() => {
-                  console.log(newPost);
-                }}
-              >
-                log
-              </button>
-              {/* <CardActions>
+              <CardActions>
                 <Button
                   className="btnPost"
                   onClick={() => handleCreateOrUpdatePost(newPost)}
                 >
                   Create Post
                 </Button>
-              </CardActions> */}
+              </CardActions>
             </center>
           </div>
         </div>

@@ -1,210 +1,184 @@
-/* .navbarContainer{
-    width: 100%;
-  } */
-
-/* .postsContainer{
-    overflow: hidden;
-    overflow-y: scroll;
-    width: 900px;
-    height: 600px;
-    box-shadow: 20px 20px 50px rgba(0, 0,0,0, 0.5);
-    background-color: rgba(255, 255, 255,255, 0.1);
-    border-radius:15px;
-} */
-
-::-webkit-scrollbar{
-    width: 8px;
-    border-radius: 3em;
-   
+::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 3em;
 }
 
-::-webkit-scrollbar-track{
-    background-color: rgba(255, 255, 255, 0.3);
-
+::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
-::-webkit-scrollbar-thumb{
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-image: linear-gradient(to top, #596984 0%, #23314a 100% );
+::-webkit-scrollbar-thumb {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(to top, #596984 0%, #23314a 100%);
 }
 
-.post-list{
-    overflow: hidden;
-    overflow-y: scroll;
-    width: 700px;
-    height: 900px;
-    box-shadow: 20px 20px 50px rgba(0, 0,0,0, 0.5);
-    /* background-color: rgba(255, 255, 255,255, 0.7); */
-    border-radius:15px;
-} 
+.post-list {
+  overflow: hidden;
+  overflow-y: scroll;
+  width: 700px;
+  height: 900px;
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0, 0.5);
+  /* background-color: rgba(255, 255, 255,255, 0.7); */
+  border-radius: 15px;
+}
 
-.postsContainer{
-    margin-right: 3px;
-  margin-bottom: 30px ;
+.postsContainer {
+  margin-right: 3px;
+  margin-bottom: 30px;
   margin-top: 10px;
-  box-shadow: 20px 20px 50px rgba(0,0,0, 0.5);
-  background-color: rgba(255, 255,255, 0.1);
-  border-radius:15px;
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
   backdrop-filter: blur(4px);
   border-top: 1px solid rgba(255, 255, 255, 0.5);
-} 
-
-/* body{
-    min-height: 200vh;
-} */
-
-.headerPost{
-    display: flex;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-
-    backdrop-filter: blur(10px);
-    padding: 16px;
-    align-items: center;
-    height: 70px;
-    background-color:rgba(0, 0, 0, 0.5) ;
 }
 
-.spanTitle{
-    margin-left: 20px;
-    font-family: "Roboto","Helvetica","Arial",sans-serif;
-    font-weight: 400;
-    font-size: 0.875rem;
-    line-height: 1.43;
-    letter-spacing: 0.01071em;
-    display: block;
-    text-align: left;
-    font-weight: bold;
-    
+.headerPost {
+  display: flex;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+
+  backdrop-filter: blur(10px);
+  padding: 16px;
+  align-items: center;
+  height: 70px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-.spanDescription{
-    margin-left: 20px;
-    font-family: Roboto, Helvetica, Arial, sans-serif;
-    font-weight: 400;
-    font-size: 0.875rem;
-    line-height: 1.43;
-    letter-spacing: 0.01071em;
-    color: rgba(255, 255, 255, 0.7);
-    display: block;
-    text-align: justify;
-    padding-bottom: 30px;
+.spanTitle {
+  margin-left: 20px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  letter-spacing: 0.01071em;
+  display: block;
+  text-align: left;
+  font-weight: bold;
 }
 
-.spanUbication{
-    margin-left: 20px;
-    font-family: Roboto, Helvetica, Arial, sans-serif;
-    font-weight: 400;
-    font-size: 0.875rem;
-    line-height: 1.43;
-    letter-spacing: 0.01071em;
-    display: block;
-    align-items: center;
-    text-align: justify;
+.spanDescription {
+  margin-left: 20px;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  letter-spacing: 0.01071em;
+  color: rgba(255, 255, 255, 0.7);
+  display: block;
+  text-align: justify;
+  padding-bottom: 30px;
 }
 
-.iconUbi{
-    margin-left: -4px;
-    margin-bottom: -6px;
-    font-family: Roboto, Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    font-size: 0.875rem;
-    line-height: 1.43;
-    letter-spacing: 0.01071em;
-    color: rgba(255, 255, 255, 0.7);
-    display: block;
-    justify-content: left;
+.spanUbication {
+  margin-left: 20px;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  letter-spacing: 0.01071em;
+  display: block;
+  align-items: center;
+  text-align: justify;
 }
 
-.editButton{
-    flex: 0 0 auto ;
-    align-self: flex-start;
-    margin-top: -4px;
-    margin-right: 8px auto;
-    margin-bottom: -4px;
+.iconUbi {
+  margin-left: -4px;
+  margin-bottom: -6px;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  letter-spacing: 0.01071em;
+  color: rgba(255, 255, 255, 0.7);
+  display: block;
+  justify-content: left;
 }
 
-.titlePost{
-    flex: 1 1 auto;
+.editButton {
+  flex: 0 0 auto;
+  align-self: flex-start;
+  margin-top: -4px;
+  margin-right: 8px auto;
+  margin-bottom: -4px;
 }
 
-/* .DescriptioTitlePost{
-    flex: 1 1 auto;
-    padding-bottom: 20px;
-} */
-
-.imagenContainer{
-    display: flex;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    justify-content: center;
-    backdrop-filter: blur(10px);
-    padding: 16px;
-    align-items: center;
-    min-height: 300px auto;
-    background-color: rgba(255, 255, 255, 0.3);
+.titlePost {
+  flex: 1 1 auto;
 }
 
-.descriptionPost{
-    display: flex;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-    backdrop-filter: blur(10px);
-    padding: 16px;
-    align-items: center;
-    height: 70px;
-    background-color:rgba(0, 0, 0, 0.5) ;
+.imagenContainer {
+  display: flex;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  padding: 16px;
+  align-items: center;
+  min-height: 300px auto;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
-.btnLikeContainer{
-    margin-left: 20px;
-    font-family: "Roboto","Helvetica","Arial",sans-serif;
-    font-weight: 400;
-    font-size: 0.875rem;
-    line-height: 1.43;
-    letter-spacing: 0.01071em;
-    display: block;
-    text-align: left;
-    font-weight: bold;
+.descriptionPost {
+  display: flex;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  backdrop-filter: blur(10px);
+  padding: 16px;
+  align-items: center;
+  height: 70px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-.btnLike{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background-color: transparent;
-    border: none;
-    font-size: 20px;
+.btnLikeContainer {
+  margin-left: 20px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  letter-spacing: 0.01071em;
+  display: block;
+  text-align: left;
+  font-weight: bold;
 }
 
-.btnDelete{
-    padding-top: 5px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    background-color: transparent;
-    border: none;
-    font-size: 20px;
+.btnLike {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
 }
 
-.input{
-    padding: 9px 0px 7px 8px;
-    margin: 8px;
-    width: 250px;
-    height: 20px;
-    background-color: #fafafa;
-    border: solid 1px #dbdbdb;
+.btnDelete {
+  padding-top: 5px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+}
+
+.input {
+  padding: 9px 0px 7px 8px;
+  margin: 8px;
+  width: 250px;
+  height: 20px;
+  background-color: #fafafa;
+  border: solid 1px #dbdbdb;
 }
 
 .input:hover {
-    background-color:rgba(0, 255, 255, 0.426);
-    color: #000;
-    border: none;
+  background-color: rgba(0, 255, 255, 0.426);
+  color: #000;
+  border: none;
 }
 
-.btnPost{
-    border: solid 1px black;
-    align-items: center;
-    width: 250px;
-    background-color: #1b6dfa;
+.btnPost {
+  border: solid 1px black;
+  align-items: center;
+  width: 250px;
+  background-color: #1b6dfa;
 }

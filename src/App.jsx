@@ -1,19 +1,11 @@
-import './App.css';
-import ChangePassword from './components/ChangePassword/ChangePassword';
-import Login from './components/Login/Login';
-import Register from './components/register/register'
+import "./App.css";
 
 function App() {
-  // const { i18n, t } = useTranslation();
-  // function changeLanguage(language) {
-  //   i18n.changeLanguage(language);
-  // }
   return (
     <div className="App">
-      <header className="App-header">
-       {/* <Login/> */}
-       <Register/>
-      </header> 
+      <h6>404</h6>
+      <br />
+      <h3>not found</h3>
     </div>
   );
 }
