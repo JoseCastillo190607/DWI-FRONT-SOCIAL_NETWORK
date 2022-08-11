@@ -1,7 +1,9 @@
 import "./register.css";
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Widget } from "@uploadcare/react-widget";
+import { useNavigate, Link } from "react-router-dom";
+import { GlobalContext } from "../../context/global-context";
 
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -15,20 +17,26 @@ import Typography from "@mui/material/Typography";
 const url = "//localhost:5000/api/register";
 
 export default function Login() {
-  const [name, setName] = useState("");
-  const [firstlastname, setFirstlastname] = useState("");
-  const [secondlastname, setSecondlastname] = useState("");
-  const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
-  const [dateofbirth, setDateofbirth] = useState("");
+  const navigate = useNavigate();
   const [photo, setPhoto] = useState("");
   const [dataregister, setDataregister] = useState({});
+  const { handleUser } = useContext(GlobalContext);
 
   const register = () => {
     axios
       .post(`${url}`, dataregister)
       .then((resp) => {
-        console.log(resp);
+        let data = resp.data;
+        if (data.err === false) {
+          handleUser(dataregister);
+          navigate("/posts");
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Opps",
+            text: "Ocurrio un error",
+          });
+        }
       })
       .catch((err) => {
         Swal.fire({
@@ -43,7 +51,7 @@ export default function Login() {
     <div style={{ paddingTop: "1%", paddingBottom: "1%" }}>
       <Card
         className="containerLogin"
-        sx={{ minWidth: 275, height: 570, width: 350 }}
+        sx={{ minWidth: 275, height: 700, width: 350 }}
       >
         <CardContent>
           <Typography className="containerContent" variant="h5" component="div">
@@ -57,7 +65,10 @@ export default function Login() {
                   placeholder="Nombre"
                   type="text"
                   onChange={(event) => {
-                    setName(event.target.value);
+                    setDataregister((current) => ({
+                      ...current,
+                      name: event.target.value,
+                    }));
                   }}
                 />
                 <input
@@ -65,7 +76,10 @@ export default function Login() {
                   placeholder="Apellido Paterno"
                   type="text"
                   onChange={(event) => {
-                    setFirstlastname(event.target.value);
+                    setDataregister((current) => ({
+                      ...current,
+                      firstlastname: event.target.value,
+                    }));
                   }}
                 />
                 <input
@@ -73,7 +87,10 @@ export default function Login() {
                   placeholder="Apellido materno"
                   type="text"
                   onChange={(event) => {
-                    setSecondlastname(event.target.value);
+                    setDataregister((current) => ({
+                      ...current,
+                      secondlastname: event.target.value,
+                    }));
                   }}
                 />
                 <input
@@ -81,7 +98,10 @@ export default function Login() {
                   placeholder="Correo electronico"
                   type="email"
                   onChange={(event) => {
-                    setEmail(event.target.value);
+                    setDataregister((current) => ({
+                      ...current,
+                      email: event.target.value,
+                    }));
                   }}
                 />
                 <input
@@ -89,7 +109,10 @@ export default function Login() {
                   placeholder="Contraseña"
                   type="password"
                   onChange={(event) => {
-                    setPass(event.target.value);
+                    setDataregister((current) => ({
+                      ...current,
+                      pass: event.target.value,
+                    }));
                   }}
                 />
                 <input
@@ -97,27 +120,34 @@ export default function Login() {
                   placeholder="Fecha de nacimiento"
                   type="date"
                   onChange={(event) => {
-                    setDateofbirth(event.target.value);
+                    setDataregister((current) => ({
+                      ...current,
+                      dateofbirth: event.target.value,
+                    }));
                   }}
                 />
                 <div className="div-login">
+                  <img
+                    src={`https://ucarecdn.com/${photo}/-/resize/100x100/-/preview/`}
+                    alt="foto tomada"
+                  />
+                  <br />
                   <Widget
                     variant="outlined"
                     publicKey="712e3cdcf23e9fa90269"
                     enableVideoRecording="false"
                     tabs="file camera"
-                    onFileSelect={(file) => {
-                      console.log("File changed: ", file);
-                      if (file) {
-                        file.progress((info) =>
-                          console.log("File progress: ", info.progress)
-                        );
-                        file.done((info) =>
-                          console.log("File uploaded: ", info)
-                        );
+                    onFileSelect={(info)=>{
+                      if(info){
+                        info.done(file=>setPhoto(file.uuid))
                       }
                     }}
-                    onChange={(info) => setPhoto(info.uuid)}
+                    onChange={(info) =>
+                      setDataregister((current) => ({
+                        ...current,
+                        photo: info.uuid,
+                      }))
+                    }
                   />
                 </div>
               </div>
@@ -126,16 +156,6 @@ export default function Login() {
                 <Button
                   className="btnLogin"
                   onClick={() => {
-                    setDataregister({
-                      name,
-                      firstlastname,
-                      secondlastname,
-                      email,
-                      pass,
-                      dateofbirth,
-                      photo,
-                    });
-                    console.log(dataregister);
                     register();
                   }}
                 >
@@ -161,9 +181,11 @@ export default function Login() {
           <label size="small">¿Ya tienes una cuenta?</label>
         </Typography>
         <CardActions className="btnRegister">
-          <Button className="btnRegister" size="small">
-            Inicia Sesion
-          </Button>
+          <Link to="/login">
+            <Button className="btnRegister" size="small">
+              Inicia Sesion
+            </Button>
+          </Link>
         </CardActions>
       </Card>
     </div>

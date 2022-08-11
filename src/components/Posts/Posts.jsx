@@ -1,15 +1,13 @@
-// import { Link } from "react-router-dom";
-// import { useTranslation } from 'react-i18next';
-// import '../Posts/Posts.css'
 import "./Posts.css";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Widget } from "@uploadcare/react-widget";
-
+import { GlobalContext } from "../../context/global-context";
+import Navbar from "../Navbar/navbar";
 
 import {
     getPosts,
@@ -21,16 +19,12 @@ import {
 } from "../../api/posts-api";
 
 const Posts = () => {
-
     //     const { i18n, t } = useTranslation();
 
     //   function changeLanguage(language) {
     //     i18n.changeLanguage(language);
     //   }
 
-    const [posts, setPosts] = useState([]);
-    const [photo, setPhoto] = useState("");
-  const [newPost, setNewPost] = useState({});
   const [likepost, setLike] = useState(0);
 
     async function fetchPosts() {
@@ -38,6 +32,16 @@ const Posts = () => {
         console.log({ fetchedPosts });
         setPosts(fetchedPosts);
     }
+  const [posts, setPosts] = useState([]);
+  const [photo, setPhoto] = useState("");
+  const { userdata } = useContext(GlobalContext);
+  console.log(userdata);
+  const [newPost, setNewPost] = useState({});
+  async function fetchPosts() {
+    const fetchedPosts = await getPosts();
+    console.log({ fetchedPosts });
+    setPosts(fetchedPosts);
+  }
 
     
 
@@ -48,48 +52,66 @@ const Posts = () => {
         ubication,
         image,
         like,
-        togglePost,
         updatedAt,
         removePost,
         handleCreateOrUpdatePost,
     }) => {
         const [isEditing, setIsEditing] = useState(false);
         const [edditingPost, setEditingPost] = useState({});
+        const [likepost, setLikepost] = useState(like);
 
         const handleEdit = () => {
             setIsEditing((current) => !current);
             setEditingPost({ _id, title, description, ubication, image, like });
         };
 
-        return (
-            <div className="post-item" style={{ paddingTop: "1%", paddingBottom: "1%" }}>
-                <center>
-                    <Card className="containerLogin"
-                        sx={{ minWidth: 275, height: 570, width: 350 }}>
-                        <CardContent>
-                            <Typography className="containerContent" variant="h5" component="div">
-                                Devstragram
-                            </Typography>
-                            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                                <div className="post-grid">
-                                    <h3>
-                                        {title}
-                                    </h3>
-                                    <h4>{description}</h4>
-                                    <p>
-                                        Ubication:<b>{ubication}</b>{" "}
-                                    </p>
-                                    <p>Image: {image}</p>
+    return (
+      <div className="post-item">
+        <center>
+          <Card>
+            <CardContent>
+              <Typography
+                className="containerContent"
+                variant="h5"
+                component="div"
+              >
+                Devstragram
+              </Typography>
+              <Typography
+                sx={{ fontSize: 14 }}
+                color="text.secondary"
+                gutterBottom
+              >
+                <div className="post-grid">
+                  <h3>
+                    {title} <button onClick={handleEdit}>Edit</button>
+                  </h3>
+                  <h4>{description}</h4>
+                  <p>
+                    Ubication:<b>{ubication}</b>{" "}
+                  </p>
+                  <p>
+                    Image: <br />
+                    <img
+                      src={`https://ucarecdn.com/${image}/-/resize/100x100/-/preview/`}
+                      alt="foto tomada"
+                    />
                                     <div>
-                                                    <button onClick={()=>{if(likepost===0){setLike(1)}else{setLike(0)}} } >
-                                                        <b>{like===1 ? " ❤️" : "🖤"}</b>{" "}
+                                                    <button onClick={()=>{setLikepost(!likepost); setEditingPost((current) => ({
+                                                        ...current,
+                                                        like: !likepost,
+                                                    }))} } >
+                                                        <b>{likepost===true ? " ❤️" : "🖤"}</b>{" "}
                                                     </button>
                                                 </div>
 
-                                    <Button className="button-danger" onClick={() => removePost(_id)}>
-                                        Delete
-                                    </Button>
-                                    <Button onClick={handleEdit}>Edit</Button>
+                  </p>
+                  <button
+                    className="button-danger"
+                    onClick={() => removePost(_id)}
+                  >
+                    Delete
+                  </button>
 
                                     {isEditing && (
                                         <div>
@@ -127,38 +149,29 @@ const Posts = () => {
                                                     name="title"
                                                     value={newPost.ubication}
                                                     onChange={(e) =>
-                                                        setEditingPost((current) => ({ ...current, ubication: e.target.value }))
+                                                        setEditingPost((current) => ({
+                                                            ...current,
+                                                            ubication: e.target.value,
+                                                        }))
                                                     }
                                                 />
                                             </div>
                                             <div>
                                                 <h3>Image </h3>
-                                                <div>
-                                                    <Widget
-                                                        variant="outlined"
-                                                        publicKey="712e3cdcf23e9fa90269"
-                                                        enableVideoRecording="false"
-                                                        tabs="file camera"
-                                                        onFileSelect={(file) => {
-                                                            console.log("File changed: ", file);
-                                                            if (file) {
-                                                                file.progress((info) =>
-                                                                    console.log("File progress: ", info.progress)
-                                                                );
-                                                                file.done((info) =>
-                                                                    console.log("File uploaded: ", info)
-                                                                );
-                                                            }
-                                                        }}
-                                                        onChange={(info) => setPhoto(info.uuid)}
-                                                    />
-                                                </div>
-
-                                                
+                                                <Widget
+                                                    publicKey="712e3cdcf23e9fa90269"
+                                                    enableVideoRecording="false"
+                                                    tabs="file camera"
+                                                    onChange={(info) =>
+                                                        setNewPost((current) => ({
+                                                            ...current,
+                                                            image: info.uuid,
+                                                        }))
+                                                    }
+                                                />
                                             </div>
-
                                             <Button
-                                                className="btnPost"
+                                                className="button-primary"
                                                 onClick={() => handleCreateOrUpdatePost(edditingPost)}
                                             >
                                                 Update Post
@@ -183,15 +196,10 @@ const Posts = () => {
         fetchPosts();
     };
 
-    const toggleCompleted = async (id) => {
-        await completePost(id);
-        fetchPosts();
-    };
-
     const handleCreateOrUpdatePost = async (post) => {
         if (!post._id) {
             await createPost(post);
-            setNewPost({ title: "", description: "", ubication: "" });
+            setNewPost({ title: "", description: "", ubication: "", image: "" });
             fetchPosts();
             return;
         }
@@ -203,9 +211,10 @@ const Posts = () => {
 
     return (
         <div>
+            <Navbar></Navbar>
             <div className="post-list">
                 <center>
-                    <h1>POSTS</h1>
+                    <h2>POSTS</h2>
                 </center>
                 {posts &&
                     posts.map((post) => (
@@ -213,7 +222,7 @@ const Posts = () => {
                             {...post}
                             handleCreateOrUpdatePost={handleCreateOrUpdatePost}
                             removePost={removePost}
-                            togglePost={toggleCompleted}
+                            // togglePost={toggleCompleted}
                         />
                     ))}
                 <div className="posts-create">
@@ -226,71 +235,70 @@ const Posts = () => {
                                 name="title"
                                 value={newPost.title}
                                 onChange={(e) =>
-                                    setNewPost((current) => ({ ...current, title: e.target.value }))
-                                }
-                            />
-                        </div>
-
-                        <div>
-                            <h3>Description</h3>
-                            <input
-                                className="input"
-                                type="text"
-                                name="description"
-                                value={newPost.description}
-                                onChange={(e) =>
                                     setNewPost((current) => ({
                                         ...current,
-                                        description: e.target.value,
+                                        title: e.target.value,
                                     }))
                                 }
                             />
                         </div>
-                        <div>
-                            <h3>Ubication </h3>
-                            <input
-                                className="input"
-                                type="text"
-                                name="title"
-                                value={newPost.ubication}
-                                onChange={(e) =>
-                                    setNewPost((current) => ({ ...current, ubication: e.target.value }))
-                                }
-                            />
-                        </div>
-                        <div>
-                            <Widget
-                                variant="outlined"
-                                publicKey="712e3cdcf23e9fa90269"
-                                enableVideoRecording="false"
-                                tabs="file camera"
-                                onFileSelect={(file) => {
-                                    console.log("File changed: ", file);
-                                    if (file) {
-                                        file.progress((info) =>
-                                            console.log("File progress: ", info.progress)
-                                        );
-                                        file.done((info) =>
-                                            console.log("File uploaded: ", info)
-                                        );
-                                    }
-                                }}
-                                onChange={(info) => setPhoto(info.uuid)}
-                            />
-                        </div>
-                        <CardActions>
-                            <Button
-                                className="btnPost"
-                                onClick={() => handleCreateOrUpdatePost(newPost)}
-                            >
-                                Create Post
-                            </Button>
-                        </CardActions>
-                    </center>
-                </div>
+
+            <div>
+              <h3>Description</h3>
+              <input
+                className="input"
+                type="text"
+                name="description"
+                value={newPost.description}
+                onChange={(e) =>
+                  setNewPost((current) => ({
+                    ...current,
+                    description: e.target.value,
+                  }))
+                }
+              />
             </div>
+            <div>
+              <h3>Ubication </h3>
+              <input
+                className="input"
+                type="text"
+                name="title"
+                value={newPost.ubication}
+                onChange={(e) =>
+                  setNewPost((current) => ({
+                    ...current,
+                    ubication: e.target.value,
+                  }))
+                }
+              />
+              <br />
+              <Widget
+              publicKey="712e3cdcf23e9fa90269"
+              enableVideoRecording="false"
+              tabs="file camera"
+              onChange={(info) => 
+                setNewPost((current) => ({
+                    ...current,
+                    image:  info.uuid,
+                }))
+            }
+            />
+            </div>
+            <button onClick={()=>{console.log(newPost)}}>log</button>
+            <CardActions>
+              <Button
+                className="btnPost"
+                onClick={() => handleCreateOrUpdatePost(newPost)}
+              >
+                Create Post
+              </Button>
+            </CardActions>
+          </center>
         </div>
-    );
-}
+      </div>
+    </div>
+  );
+};
 
 export default Posts;

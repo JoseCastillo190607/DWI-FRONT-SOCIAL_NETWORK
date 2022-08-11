@@ -1,6 +1,8 @@
 import "./login.css";
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { GlobalContext } from "../../context/global-context";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -13,9 +15,9 @@ import Typography from "@mui/material/Typography";
 const url = "//localhost:5000/api/register/login";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
-  const [checkdata, setCheckData] = useState();
+  const navigate = useNavigate();
+  const [checkdata, setCheckData] = useState({});
+  const { handleUser } = useContext(GlobalContext);
 
   const login = () => {
     axios
@@ -23,9 +25,14 @@ export default function Login() {
       .then((resp) => {
         let datos = resp.data;
         if (datos.err === false) {
-          console.log(resp);
+          handleUser(datos.userdata);
+          navigate("/posts");
         } else {
-          Swal.fire({ icon: "error", title: "Opps", text: "Contraseña incorrecta" });
+          Swal.fire({
+            icon: "error",
+            title: "Opps",
+            text: "Contraseña incorrecta",
+          });
         }
       })
       .catch((err) => {
@@ -52,9 +59,12 @@ export default function Login() {
               <div className="div-login">
                 <input
                   className="input-correo"
-                  placeholder="Correo electronico"
+                  placeholder="Correo electrónico"
                   onChange={(event) => {
-                    setEmail(event.target.value);
+                    setCheckData((current) => ({
+                      ...current,
+                      email: event.target.value,
+                    }));
                   }}
                 ></input>
                 <input
@@ -62,7 +72,10 @@ export default function Login() {
                   type="password"
                   placeholder="Contraseña"
                   onChange={(event) => {
-                    setPass(event.target.value);
+                    setCheckData((current) => ({
+                      ...current,
+                      pass: event.target.value,
+                    }));
                   }}
                 ></input>
               </div>
@@ -71,10 +84,11 @@ export default function Login() {
                   type="button"
                   className="btnLogin"
                   onClick={() => {
-                    setCheckData({ email, pass });
                     login();
                   }}
-                >Inicia Sesion</Button>
+                >
+                  Inicia Sesion
+                </Button>
               </div>
             </form>
           </Typography>
@@ -95,9 +109,11 @@ export default function Login() {
           <label size="small">¿No tienes una cuenta?</label>
         </Typography>
         <CardActions className="btnRegister">
-          <Button className="btnRegister" size="small">
-            Registrate
-          </Button>
+          <Link to="/register">
+            <Button className="btnRegister" size="small">
+              Registrate
+            </Button>
+          </Link>
         </CardActions>
       </Card>
     </div>
