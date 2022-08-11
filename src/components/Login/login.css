@@ -1,199 +1,207 @@
 .like {
-    width: 20px;
-    height: 20px;
-    background-color: #5e2224;
-    border-color: black;
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45);
-    -moz-transform: rotate(45);
-    -ms-transform: rotate(45);
-    -o-transform: rotate(45);
-    margin: 20px auto;
-    position: relative;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-    animation: palpitar 2s linear infinite alternate;
-    -webkit-animation: palpitar 2s linear infinite alternate;
-    will-change: transform;
+  width: 20px;
+  height: 20px;
+  background-color: #5e2224;
+  border-color: black;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45);
+  -moz-transform: rotate(45);
+  -ms-transform: rotate(45);
+  -o-transform: rotate(45);
+  margin: 20px auto;
+  margin-top: -20px;
+  margin-left: -30px;
+  position: relative;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  animation: palpitar 2s linear infinite alternate;
+  -webkit-animation: palpitar 2s linear infinite alternate;
+  will-change: transform;
 }
 
 .like:before,
 .like:after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-color: #5e2224;
-    border-color: black;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #5e2224;
+  border-color: black;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
 }
 
 .like:before {
-    top: 0;
-    left: -50%;
+  top: 0;
+  left: -50%;
 }
 
 .like:after {
-    top: -50%;
+  top: -50%;
 }
 
 @keyframes palpitar {
-    0% {
-        transform: rotate(45deg) scale(1);
-    }
+  0% {
+    transform: rotate(45deg) scale(1);
+  }
 
-    50% {
-        transform: rotate(45deg) scale(1.5);
-    }
+  50% {
+    transform: rotate(45deg) scale(1.5);
+  }
 
-    100% {
-        transform: rotate(45deg) scale(1);
-    }
+  100% {
+    transform: rotate(45deg) scale(1);
+  }
 }
 
-
 .containerLogin {
-    margin-bottom: 20px;
-    box-sizing: border-box;
-    margin: 10px auto;
-    padding: 40px;
-    min-width: 275px;
-    height: 396px;
-    width: 350px;
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-    backdrop-filter: blur(4px);
-    box-shadow: 0px 4px 10px rgba(159, 198, 224, 0.7);
-    border-radius:15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  margin: 10px auto;
+  padding: 40px;
+  min-width: 275px;
+  height: 396px;
+  width: 350px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0px 4px 10px rgba(159, 198, 224, 0.7);
+  border-radius: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .containerContent {
-    padding-top: 0px;
-    padding-bottom: 40px;
-    display: flex;
+  padding-top: 0px;
+  padding-bottom: 40px;
+  display: flex;
 }
 
 .corazonContainer {
-    margin-left: 30px;
-    margin-right: 5px;
+  margin-left: 30px;
+  margin-right: 5px;
 }
 
 .divDevs {
-    margin-left: 15px;
-    padding-top: 15px;
+  margin-left: -10px;
+  padding-top: 15px;
+  margin-bottom: -20px;
 }
 
-.label-correo  {
+.label-correo {
   padding: 9px 0px 7px 8px;
   margin-bottom: 8px;
   width: 250px;
   height: 20px;
-    color: #fff;
-    align-items: center;
-    text-align: center;
-    padding: 10px;
+  color: #fff;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
 }
 
 .input-correo {
-    padding: 9px 0px 7px 8px;
-    margin-bottom: 13px;
-    margin-top: 8px;
-    width: 250px;
-    height: 20px;
-    color: #000;
+  padding: 9px 0px 7px 8px;
+  margin-bottom: 13px;
+  margin-left: -10px;
+  margin-top: 8px;
+  width: 20px;
+  height: 20px;
+  color: #000;
   background-color: rgba(255, 255, 255, 0.2);
   border: solid 1px #dbdbdb;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
 }
 
 .input-correo:hover {
-    border: solid 1px #dbdbdb;
-    color: #fff;
-    background-color: transparent;
-    /*border: solid 1px #dbdbdb;
+  border: solid 1px #dbdbdb;
+  color: #fff;
+  background-color: transparent;
+  /*border: solid 1px #dbdbdb;
     */
-    border-radius: 4px;
-    box-shadow: rgba(-255, -255, -255, 0.5);
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
+  border-radius: 4px;
+  box-shadow: rgba(-255, -255, -255, 0.5);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
 }
 
-.input-password  {
+.input-password {
   padding: 9px 0px 7px 8px;
   margin-bottom: 20px;
+  margin-left: -10px;
   width: 250px;
   height: 20px;
-    color: #000;
+  color: #000;
   background-color: rgba(255, 255, 255, 0.1);
   border: solid 1px #dbdbdb;
-    border-radius: 4px;
-    box-shadow: rgba(-255, -255, -255, 0.5);
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
-    /* background-color: #fafafa;
+  border-radius: 4px;
+  box-shadow: rgba(-255, -255, -255, 0.5);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  /* background-color: #fafafa;
     border: solid 1px #dbdbdb; */
 }
 
 .input-password:hover {
-    color: #fff;
-    border: solid 1px #dbdbdb;
-    background-color: transparent;
-    /*border: solid 1px #dbdbdb;
+  color: #fff;
+  border: solid 1px #dbdbdb;
+  background-color: transparent;
+  /*border: solid 1px #dbdbdb;
     */
-    border-radius: 4px;
-    box-shadow: rgba(255, 255, 255, 0.5);
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
+  border-radius: 4px;
+  box-shadow: rgba(255, 255, 255, 0.5);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
 }
 
-.btnLogin  {
+.btnLogin {
   border-radius: 4px;
   align-items: center;
-    height: 30px;
+  margin-left: -10px;
+  height: 30px;
   width: 250px;
-    font-weight: bold;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
+  font-weight: bold;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
 }
 
-.containerRegister  {
+.containerRegister {
   display: flex;
   align-items: center;
   text-align: center;
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-    backdrop-filter: blur(4px);
-
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
 }
 
-.containerLabel-Resgistro  {
-      display: flex;
-      text-align: center;
-      align-items: center;
+.containerLabel-Resgistro {
+  display: flex;
+  text-align: center;
+  align-items: center;
 }
 
-.labelRegistro {
-    padding-top: 14px;
-    padding-left: 40px;
+.labelRegistrologin {
+  padding-top: 14px;
+  padding-left: 40px;
+}
+
+.linkRegister {
+  text-decoration: none;
 }

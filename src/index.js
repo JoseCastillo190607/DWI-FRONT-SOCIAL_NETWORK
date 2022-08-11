@@ -15,7 +15,7 @@ import App from "./App";
 import Posts from "./components/Posts/Posts";
 import Login from "./components/Login/Login";
 import Register from "./components/register/register";
-import Navbar from "./components/Navbar/navbar"
+import Navbar from "./components/Navbar/navbar";
 import ChangePassword from "./components/ChangePassword/ChangePassword";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

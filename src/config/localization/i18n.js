@@ -5,22 +5,22 @@ import * as enL from "./translations/en.json";
 import * as esL from "./translations/es.json";
 
 i18n
-    .use(LanguageDetector)
-    .use(initReactI18next)
-    .init({
-        resources: {
-            en:{
-                translation: enL,
-            },
-            es:{
-                translation: esL,
-            }
-        },
-        fallbackLng: "en",
-    
-        interpolation:{
-            escapeValue: false,
-        },
-    });
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    resources: {
+      en: {
+        translation: enL,
+      },
+      es: {
+        translation: esL,
+      },
+    },
+    fallbackLng: "en",
+
+    interpolation: {
+      escapeValue: false,
+    },
+  });
 
 export default i18n;

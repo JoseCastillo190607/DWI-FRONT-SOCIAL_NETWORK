@@ -1,18 +1,15 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Avatar from '@mui/material/Avatar';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-// import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Tooltip from '@mui/material/Tooltip';
-// import PersonAdd from '@mui/icons-material/PersonAdd';
-// import Settings from '@mui/icons-material/Settings';
-import Logout from '@mui/icons-material/Logout';
-import { Link, useNavigate } from 'react-router-dom';
-import '../Navbar/navbar.css';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Avatar from "@mui/material/Avatar";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Tooltip from "@mui/material/Tooltip";
+import Logout from "@mui/icons-material/Logout";
+import { Link, useNavigate } from "react-router-dom";
+import "../Navbar/navbar.css";
 import { GlobalContext } from "../../context/global-context";
 import { useContext } from 'react';
 import { unstable_getNormalizedScrollLeft } from '@mui/utils';
@@ -20,7 +17,6 @@ import { useTranslation } from "react-i18next";
 
 
 export default function Navbar() {
-
   const navigate = useNavigate();
 
   const { i18n, t } = useTranslation();
@@ -34,20 +30,16 @@ export default function Navbar() {
     setAnchorEl(null);
   };
 
-
   const { userdata, handleUser } = useContext(GlobalContext);
-  console.log('userdata:',userdata)
-
-  function loguot(){
+  function loguot() {
     handleUser({});
     navigate("/login");
   }
-  
-//  const { handleUser } = useContext(GlobalContext);
-  
+
+  //  const { handleUser } = useContext(GlobalContext);
 
   return (
-    <div className='navbar'>
+    <div className="navbar">
       <React.Fragment>
         <Box className='nav' sx={{
           display: 'flex', alignItems: 'center', textAlign: 'center', backgroundColor: 'black', width: '700px', height: '50px', borderRadius: '10px', justifyContent: 'center', padding: '5px'

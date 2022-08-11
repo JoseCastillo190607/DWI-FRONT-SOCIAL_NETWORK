@@ -7,14 +7,12 @@ import { GlobalContext } from "../../context/global-context";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
 import Swal from "sweetalert2";
-
-import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
-const url = "//localhost:5000/api/register";
+const url = "https://dewin007.herokuapp.com/api/register";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -29,8 +27,8 @@ export default function Login() {
       .then((resp) => {
         let data = resp.data;
         if (data.err === false) {
-          handleUser(dataregister);
-          navigate("/posts");
+          // handleUser(dataregister);
+          navigate("/login");
         } else {
           Swal.fire({
             icon: "error",
@@ -49,14 +47,25 @@ export default function Login() {
   };
 
   return (
-    <div style={{ paddingTop: "1%", paddingBottom: "1%" }}>
-      <Card
-        className="containerLogin"
+    <div>
+      {/* // <div style={{ paddingTop: "1%", paddingBottom: "1%" }}> */}
+      <div
+        className="containerRegister"
         sx={{ minWidth: 275, height: 700, width: 350 }}
       >
         <CardContent>
           <Typography className="containerContent" variant="h5" component="div">
-            Devstragram
+            <div className="containerLogo">
+              <div className="divDevs" width="50%">
+                <span className="corazonContainer">
+                  {" "}
+                  <div className="like"></div>{" "}
+                </span>
+              </div>
+            </div>
+            <div className="divDevs" width="50%">
+              Devstagram
+            </div>
           </Typography>
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             <form className="form-login">
@@ -129,18 +138,21 @@ export default function Login() {
                 />
                 <div className="div-login">
                   <img
+                    className="imgRegister"
+                    width="110px"
                     src={`https://ucarecdn.com/${photo}/-/resize/100x100/-/preview/`}
                     alt="foto tomada"
                   />
                   <br />
                   <Widget
+                    className="btnImg"
                     variant="outlined"
                     publicKey="712e3cdcf23e9fa90269"
                     enableVideoRecording="false"
                     tabs="file camera"
-                    onFileSelect={(info)=>{
-                      if(info){
-                        info.done(file=>setPhoto(file.uuid))
+                    onFileSelect={(info) => {
+                      if (info) {
+                        info.done((file) => setPhoto(file.uuid));
                       }
                     }}
                     onChange={(info) =>
@@ -153,9 +165,9 @@ export default function Login() {
                 </div>
               </div>
               <br />
-              <div className="div-login">
+              <div className="div-div-loginBtn">
                 <Button
-                  className="btnLogin"
+                  className="div-loginBtn"
                   onClick={() => {
                     register();
                   }}
@@ -166,12 +178,12 @@ export default function Login() {
             </form>
           </Typography>
         </CardContent>
-      </Card>
+      </div>
 
-      <Card
+      <div
         className="containerRegister"
         size="small"
-        sx={{ minWidth: 275, height: 63, width: 350 }}
+        sx={{ height: 63, width: 350 }}
       >
         <Typography
           className="labelRegistro"
@@ -183,13 +195,13 @@ export default function Login() {
           {/* {t("question")} */}
         </Typography>
         <CardActions className="btnRegister">
-          <Link to="/login">
+          <Link className="linkLogin" to="/login">
             <Button className="btnRegister" size="small">
               Inicia Sesion
             </Button>
           </Link>
         </CardActions>
-      </Card>
+      </div>
     </div>
   );
 }
