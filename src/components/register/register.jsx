@@ -2,6 +2,7 @@ import "./register.css";
 
 import React, { useState } from "react";
 import { Widget } from "@uploadcare/react-widget";
+import { useTranslation } from "react-i18next";
 
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -15,6 +16,7 @@ import Typography from "@mui/material/Typography";
 const url = "//localhost:5000/api/register";
 
 export default function Login() {
+  const { i18n, t } = useTranslation();
   const [name, setName] = useState("");
   const [firstlastname, setFirstlastname] = useState("");
   const [secondlastname, setSecondlastname] = useState("");
@@ -54,7 +56,7 @@ export default function Login() {
               <div className="div-login">
                 <input
                   className="input-correo"
-                  placeholder="Nombre"
+                  placeholder={t("name")}
                   type="text"
                   onChange={(event) => {
                     setName(event.target.value);
@@ -62,7 +64,7 @@ export default function Login() {
                 />
                 <input
                   className="input-password"
-                  placeholder="Apellido Paterno"
+                  placeholder={t("f_lastname")}
                   type="text"
                   onChange={(event) => {
                     setFirstlastname(event.target.value);
@@ -70,7 +72,7 @@ export default function Login() {
                 />
                 <input
                   className="input-correo"
-                  placeholder="Apellido materno"
+                  placeholder={t("s_lastname")}
                   type="text"
                   onChange={(event) => {
                     setSecondlastname(event.target.value);
@@ -78,7 +80,7 @@ export default function Login() {
                 />
                 <input
                   className="input-correo"
-                  placeholder="Correo electronico"
+                  placeholder={t("email")}
                   type="email"
                   onChange={(event) => {
                     setEmail(event.target.value);
@@ -86,7 +88,7 @@ export default function Login() {
                 />
                 <input
                   className="input-correo"
-                  placeholder="Contraseña"
+                  placeholder={t("password")}
                   type="password"
                   onChange={(event) => {
                     setPass(event.target.value);
@@ -94,7 +96,7 @@ export default function Login() {
                 />
                 <input
                   className="input-correo"
-                  placeholder="Fecha de nacimiento"
+                  placeholder={t("birth")}
                   type="date"
                   onChange={(event) => {
                     setDateofbirth(event.target.value);
@@ -139,7 +141,7 @@ export default function Login() {
                     register();
                   }}
                 >
-                  Registrate
+                  {t("sign")}
                 </Button>
               </div>
             </form>
@@ -158,11 +160,11 @@ export default function Login() {
           sx={{ mb: 1.5 }}
           color="text.secondary"
         >
-          <label size="small">¿Ya tienes una cuenta?</label>
+          <label size="small">{t("question")}</label>
         </Typography>
         <CardActions className="btnRegister">
           <Button className="btnRegister" size="small">
-            Inicia Sesion
+          {t("login")}
           </Button>
         </CardActions>
       </Card>

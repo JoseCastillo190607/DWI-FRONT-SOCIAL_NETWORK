@@ -1,6 +1,7 @@
 import "./login.css";
 
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -13,6 +14,7 @@ import Typography from "@mui/material/Typography";
 const url = "//localhost:5000/api/register/login";
 
 export default function Login() {
+  const { i18n, t } = useTranslation();
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [checkdata, setCheckData] = useState();
@@ -52,7 +54,7 @@ export default function Login() {
               <div className="div-login">
                 <input
                   className="input-correo"
-                  placeholder="Correo electronico"
+                  placeholder={t("email")}
                   onChange={(event) => {
                     setEmail(event.target.value);
                   }}
@@ -60,7 +62,7 @@ export default function Login() {
                 <input
                   className="input-password"
                   type="password"
-                  placeholder="Contraseña"
+                  placeholder={t("password")}
                   onChange={(event) => {
                     setPass(event.target.value);
                   }}
@@ -74,7 +76,7 @@ export default function Login() {
                     setCheckData({ email, pass });
                     login();
                   }}
-                >Inicia Sesion</Button>
+                >{t("login")}</Button>
               </div>
             </form>
           </Typography>
@@ -92,11 +94,11 @@ export default function Login() {
           sx={{ mb: 1.5 }}
           color="text.secondary"
         >
-          <label size="small">¿No tienes una cuenta?</label>
+          <label size="small">{t("neg_question")}</label>
         </Typography>
         <CardActions className="btnRegister">
           <Button className="btnRegister" size="small">
-            Registrate
+            {t("sign")}
           </Button>
         </CardActions>
       </Card>
