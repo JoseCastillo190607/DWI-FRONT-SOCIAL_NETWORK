@@ -4,10 +4,10 @@ import Login from './components/Login/Login';
 import Register from './components/register/register'
 
 function App() {
-  const { i18n, t } = useTranslation();
-  function changeLanguage(language) {
-    i18n.changeLanguage(language);
-  }
+  // const { i18n, t } = useTranslation();
+  // function changeLanguage(language) {
+  //   i18n.changeLanguage(language);
+  // }
   return (
     <div className="App">
       <header className="App-header">

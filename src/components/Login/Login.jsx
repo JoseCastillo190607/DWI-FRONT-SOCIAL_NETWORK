@@ -74,7 +74,7 @@ export default function Login() {
                 <input
                   className="input-password"
                   type="password"
-                  placeholder={t("password")}
+                  placeholder={("password")}
                   onChange={(event) => {
                     setCheckData((current) => ({
                       ...current,
@@ -110,7 +110,7 @@ export default function Login() {
           sx={{ mb: 1.5 }}
           color="text.secondary"
         >
-          <label size="small">{t("neg_question")}</label>
+          <label size="small">{("neg_question")}</label>
         </Typography>
         <CardActions className="btnRegister">
           <Link to="/register">
