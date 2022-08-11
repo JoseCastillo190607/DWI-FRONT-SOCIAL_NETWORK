@@ -191,13 +191,12 @@ export default function Login() {
           sx={{ mb: 1.5 }}
           color="text.secondary"
         >
-          <label size="small">Question</label>
-          {/* {t("question")} */}
+          <label size="small">{t("question")}</label>
         </Typography>
         <CardActions className="btnRegister">
           <Link className="linkLogin" to="/login">
             <Button className="btnRegister" size="small">
-              Inicia Sesion
+              {t("login")}
             </Button>
           </Link>
         </CardActions>
