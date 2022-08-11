@@ -4,6 +4,8 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { I18nextProvider } from 'react-i18next';
+import i18n from './config/localization/i18n';
 
 // Context
 import { GlobalProvider } from "./context/global-context";
@@ -21,6 +23,7 @@ root.render(
   <div className="App">
     <header className="App-header">
       <GlobalProvider>
+      <I18nextProvider i18n={i18n}>
         <BrowserRouter>
           <Routes>
             <Route path="/posts" element={<Posts />} />
@@ -33,6 +36,7 @@ root.render(
             <Route path="/" element={<Navigate replace to="/login" />} />
           </Routes>
         </BrowserRouter>
+      </I18nextProvider>
       </GlobalProvider>
     </header>
   </div>

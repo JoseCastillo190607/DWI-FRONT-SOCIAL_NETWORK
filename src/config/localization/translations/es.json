@@ -8,5 +8,17 @@
     "sign": "Regístrate",
     "question": "¿Ya tienes una cuenta?",
     "login": "Iniciar sesión",
-    "neg_question": "¿No tienes una cuenta?"
+    "neg_question": "¿No tienes una cuenta?",
+    "descripcion": "Description",
+    "ubication": "Ubicación",
+    "image": "Imagen",
+    "update_post": "Actualizar publicación",
+    "title": "Título",
+    "create_post": "Crear publicación",
+    "edit_count": "Editar Cuenta",
+    "go_out": "Salir",
+    "change_pass": "Cambiar contraseña",
+    "actual_pass": "Ingresar contraseña actual",
+    "new_pass": "Ingresar nueva contraseña",
+    "confirm_pass": "Confirmar contraseña"
 }

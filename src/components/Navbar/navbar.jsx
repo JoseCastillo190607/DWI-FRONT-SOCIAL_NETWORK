@@ -16,12 +16,14 @@ import '../Navbar/navbar.css';
 import { GlobalContext } from "../../context/global-context";
 import { useContext } from 'react';
 import { unstable_getNormalizedScrollLeft } from '@mui/utils';
+import { useTranslation } from "react-i18next";
 
 
 export default function Navbar() {
 
   const navigate = useNavigate();
 
+  const { i18n, t } = useTranslation();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
@@ -103,11 +105,11 @@ export default function Navbar() {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <MenuItem>
-          <Avatar /> Editar Cuenta
+          <Avatar /> {t("edit_count")}
         </MenuItem>
         <MenuItem>
        <div> <Link className='link' to="/cambiarPass">
-         <Avatar /><div style={{width:'30%'}}>Cambiar Contraseña</div>
+         <Avatar /><div style={{width:'30%'}}>{t("change_pass")}</div>
         </Link>
         </div>
         </MenuItem>
@@ -117,8 +119,7 @@ export default function Navbar() {
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
-          Salir
-
+          {t("go_out")}
         </MenuItem>
       </Menu>
     </React.Fragment>

@@ -4,6 +4,7 @@ import React, { useContext, useState } from "react";
 import { Widget } from "@uploadcare/react-widget";
 import { useNavigate, Link } from "react-router-dom";
 import { GlobalContext } from "../../context/global-context";
+import { useTranslation } from "react-i18next";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -20,6 +21,7 @@ export default function Login() {
   const [photo, setPhoto] = useState("");
   const [dataregister, setDataregister] = useState({});
   const { handleUser } = useContext(GlobalContext);
+  const { i18n, t } = useTranslation();
 
   const register = () => {
     axios
@@ -61,7 +63,7 @@ export default function Login() {
               <div className="div-login">
                 <input
                   className="input-correo"
-                  placeholder={("name")}
+                  placeholder={t("name")}
                   type="text"
                   onChange={(event) => {
                     setDataregister((current) => ({
@@ -72,7 +74,7 @@ export default function Login() {
                 />
                 <input
                   className="input-password"
-                  placeholder={("f_lastname")}
+                  placeholder={t("f_lastname")}
                   type="text"
                   onChange={(event) => {
                     setDataregister((current) => ({
@@ -83,7 +85,7 @@ export default function Login() {
                 />
                 <input
                   className="input-correo"
-                  placeholder={("s_lastname")}
+                  placeholder={t("s_lastname")}
                   type="text"
                   onChange={(event) => {
                     setDataregister((current) => ({
@@ -94,7 +96,7 @@ export default function Login() {
                 />
                 <input
                   className="input-correo"
-                  placeholder={("email")}
+                  placeholder={t("email")}
                   type="email"
                   onChange={(event) => {
                     setDataregister((current) => ({
@@ -105,7 +107,7 @@ export default function Login() {
                 />
                 <input
                   className="input-correo"
-                  placeholder={("password")}
+                  placeholder={t("password")}
                   type="password"
                   onChange={(event) => {
                     setDataregister((current) => ({
@@ -116,7 +118,7 @@ export default function Login() {
                 />
                 <input
                   className="input-correo"
-                  placeholder={("birth")}
+                  placeholder={t("birth")}
                   type="date"
                   onChange={(event) => {
                     setDataregister((current) => ({
@@ -158,7 +160,7 @@ export default function Login() {
                     register();
                   }}
                 >
-                  {("sign")}
+                  {t("sign")}
                 </Button>
               </div>
             </form>
@@ -177,7 +179,8 @@ export default function Login() {
           sx={{ mb: 1.5 }}
           color="text.secondary"
         >
-          <label size="small">{("question")}</label>
+          <label size="small">Question</label>
+          {/* {t("question")} */}
         </Typography>
         <CardActions className="btnRegister">
           <Link to="/login">

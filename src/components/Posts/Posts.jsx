@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import { useEffect, useState, useContext } from "react";
 import { Widget } from "@uploadcare/react-widget";
 import { GlobalContext } from "../../context/global-context";
+import { useTranslation } from "react-i18next";
 import Navbar from "../Navbar/navbar";
 import edit from "./images/edit.png";
 import PlaceIcon from "@mui/icons-material/Place";
@@ -29,6 +30,7 @@ const Posts = () => {
 
   const [posts, setPosts] = useState([]);
   const [photo, setPhoto] = useState("");
+  const { i18n, t } = useTranslation();
   const { userdata } = useContext(GlobalContext);
   console.log(userdata);
   const [newPost, setNewPost] = useState({});
@@ -131,7 +133,7 @@ const Posts = () => {
                   
                   {isEditing && (
                     <div>
-                      <h3>Title</h3>
+                      <h3>{t("title")}</h3>
                       <input
                         className="input"
                         type="text"
@@ -145,7 +147,7 @@ const Posts = () => {
                         }
                       />
                       <div>
-                      <h3>Description</h3>
+                      <h3>{t("description")}</h3>
                       <input
                         className="input"
                         type="text"
@@ -160,7 +162,7 @@ const Posts = () => {
                       />
                       </div>
                       <div>
-                        <h3>Ubication </h3>
+                        <h3>{t("ubication")}</h3>
                         <input
                           className="input"
                           type="text"
@@ -175,7 +177,7 @@ const Posts = () => {
                         />
                       </div>
                       <div>
-                        <h3>Image </h3>
+                        <h3>{t("Image")}</h3>
                         <Widget
                           publicKey="712e3cdcf23e9fa90269"
                           enableVideoRecording="false"
@@ -192,7 +194,7 @@ const Posts = () => {
                         className="button-primary"
                         onClick={() => handleCreateOrUpdatePost(edditingPost)}
                       >
-                        Update Post
+                        {t("update_post")}
                       </button>
                     </div>
                   )}
@@ -243,7 +245,7 @@ const Posts = () => {
           <div className="posts-create">
             <center>
               <div>
-                <h3>Title </h3>
+                <h3>{t("title")}</h3>
                 <input
                   className="input"
                   type="text"
@@ -258,7 +260,7 @@ const Posts = () => {
                 />
               </div>
               <div>
-                <h3>Description</h3>
+                <h3>{t("description")}</h3>
                 <input
                   className="input"
                   type="text"
@@ -273,7 +275,7 @@ const Posts = () => {
                 />
               </div>
               <div>
-                <h3>Ubication </h3>
+                <h3>{t("ubication")} </h3>
                 <input
                   className="input"
                   type="text"
@@ -311,7 +313,7 @@ const Posts = () => {
                   className="btnPost"
                   onClick={() => handleCreateOrUpdatePost(newPost)}
                 >
-                  Create Post
+                  {t("create_post")}
                 </Button>
               </CardActions>
             </center>

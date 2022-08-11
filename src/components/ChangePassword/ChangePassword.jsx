@@ -7,11 +7,13 @@ import axios from "axios";
 import { GlobalContext } from "../../context/global-context";
 import Swal from "sweetalert2";
 import {useNavigate} from "react-router-dom"
+import { useTranslation } from "react-i18next";
 
 const url = "//localhost:5000/api/register";
 
 export default function ChangePassword() {
-
+ 
+  const { i18n, t } = useTranslation();
   const navigate = useNavigate();
 
   const { userdata } = useContext(GlobalContext);
@@ -54,17 +56,17 @@ export default function ChangePassword() {
         <CardContent>
           <Typography className="containerContent" variant="h5" component="div">
             <div className="divDevs" width="50%">
-              Cambiar contraseña
+              {t("change_pass")}
             </div>
           </Typography>
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             <form className="form-login">
               <div className="div-login">
-                <label>Ingresar contraseña actual</label>
+                <label>{t("actual_pass")}</label>
                 <br />
                 <input
                   className="input-password"
-                  placeholder="Contraseña actual"
+                  placeholder={t("actual_pass")}
                   type="password"
                   onChange={(event) => {
                     setDatapass((current) => ({
@@ -73,12 +75,12 @@ export default function ChangePassword() {
                     }));
                   }}
                 ></input>
-                <label>Ingresar nueva contraseña</label>
+                <label>{t("new_pass")}</label>
                 <br />
                 <br />
                 <input
                   className="input-password"
-                  placeholder="Nueva contraseña"
+                  placeholder={t("new_pass")}
                   type="password"
                   onChange={(event) => {
                     setDatapass((current) => ({
@@ -87,13 +89,13 @@ export default function ChangePassword() {
                     }));
                   }}
                 ></input>
-                <label>Confirmar contraseña </label>
+                <label>{t("confirm_pass")}</label>
                 <br />
                 <br />
                 <input
                   className="input-password"
                   type="password"
-                  placeholder="Confirmar Contraseña"
+                  placeholder={t("confirm_pass")}
                   onChange={(event) => {
                     setDatapass((current) => ({
                       ...current,
@@ -110,7 +112,7 @@ export default function ChangePassword() {
                     coincidir();
                   }}
                 >
-                  Cambiar contraseña
+                  {t("change_pass")}
                 </Button>
               </div>
             </form>

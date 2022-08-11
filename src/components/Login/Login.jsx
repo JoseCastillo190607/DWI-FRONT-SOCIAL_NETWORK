@@ -3,6 +3,7 @@ import "./login.css";
 import React, { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { GlobalContext } from "../../context/global-context";
+import { useTranslation } from "react-i18next";
 import axios from "axios";
 import Swal from "sweetalert2";
 import Card from "@mui/material/Card";
@@ -17,6 +18,7 @@ export default function Login() {
   const navigate = useNavigate();
   const [checkdata, setCheckData] = useState({});
   const { handleUser } = useContext(GlobalContext);
+  const { i18n, t } = useTranslation();
 
   const login = () => {
     axios
@@ -63,7 +65,7 @@ export default function Login() {
               <div className="div-login">
                 <input
                   className="input-correo"
-                  placeholder="Correo electrónico"
+                  placeholder={t("email")}
                   onChange={(event) => {
                     setCheckData((current) => ({
                       ...current,
@@ -74,7 +76,7 @@ export default function Login() {
                 <input
                   className="input-password"
                   type="password"
-                  placeholder={("password")}
+                  placeholder={t("password")}
                   onChange={(event) => {
                     setCheckData((current) => ({
                       ...current,
@@ -91,7 +93,7 @@ export default function Login() {
                     login();
                   }}
                 >
-                  Inicia Sesion
+                  {t("login")}
                 </Button>
               </div>
             </form>
@@ -110,12 +112,12 @@ export default function Login() {
           sx={{ mb: 1.5 }}
           color="text.secondary"
         >
-          <label size="small">{("neg_question")}</label>
+          <label size="small">{t("neg_question")}</label>
         </Typography>
         <CardActions className="btnRegister">
           <Link to="/register">
             <Button className="btnRegister" size="small">
-              Registrate
+              {t("sign")}
             </Button>
           </Link>
         </CardActions>

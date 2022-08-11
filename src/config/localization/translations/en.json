@@ -7,6 +7,18 @@
     "birth": "Date of birth",
     "sign": "Sign Up",
     "question": "Do you already have an account?",
-    "login": "Log In",
-    "neg_question": "Don't you have an account?"
+    "login": "Log in",
+    "neg_question": "Don't you have an account?",
+    "description": "Description",
+    "ubication": "Ubication",
+    "image": "Image",
+    "update_post": "Update post",
+    "title": "Title",
+    "create_post": "Create post",
+    "edit_count": "Edit count",
+    "go_out": "Go out",
+    "change_pass": "Change password",
+    "actual_pass": "Enter actual password",
+    "new_pass": "Enter new password",
+    "confirm_pass": "Confirm password"
 }
