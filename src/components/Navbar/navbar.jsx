@@ -45,13 +45,16 @@ export default function Navbar() {
   
 
   return (
-    <div className=''>
+    <div className='navbar'>
       <React.Fragment>
         <Box className='nav' sx={{
-          display: 'flex', alignItems: 'center', textAlign: 'center', backgroundColor: 'black', width: '900px', height: '50px', borderRadius: '10px', justifyContent: 'center'
+          display: 'flex', alignItems: 'center', textAlign: 'center', backgroundColor: 'black', width: '700px', height: '50px', borderRadius: '10px', justifyContent: 'center', padding: '5px'
         }}>
-        <Typography sx={{ minWidth: 100 }}>{userdata.name} {userdata.firstlastname} {userdata.secondlastname}</Typography>
+          <Typography sx={{ minWidth: 100 }}><h2 className='devTitle'>Devstagram</h2></Typography>
+        <Typography sx={{ minWidth: 110 }}>{userdata.name} {userdata.firstlastname} {userdata.secondlastname}</Typography>
         <Tooltip title="Account settings">
+        {/* <Typography sx={{ minWidth: 100 }}>{userdata.name} {userdata.firstlastname} {userdata.secondlastname}Devstragram</Typography> */}
+
           <IconButton
             onClick={handleClick}
             size="small"
@@ -60,7 +63,7 @@ export default function Navbar() {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+            <Avatar sx={{ width: 32, height: 32 }}>{userdata.name}</Avatar>
           </IconButton>
         </Tooltip>
       </Box>
@@ -103,9 +106,10 @@ export default function Navbar() {
           <Avatar /> Editar Cuenta
         </MenuItem>
         <MenuItem>
-        <Link className='link' to="/cambiarPass">
-          <Avatar /> Cambiar Contraseña
+       <div> <Link className='link' to="/cambiarPass">
+         <Avatar /><div style={{width:'30%'}}>Cambiar Contraseña</div>
         </Link>
+        </div>
         </MenuItem>
         {/* <Divider /> */}
         <MenuItem onClick={()=>{loguot()}}>

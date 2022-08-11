@@ -53,9 +53,6 @@ export default function ChangePassword() {
       <div className="containerPassword" sx={{ minWidth: 275, width: 350 }}>
         <CardContent>
           <Typography className="containerContent" variant="h5" component="div">
-            {/* <span className="corazonContainer">
-               <div className="like"></div> 
-            </span> */}
             <div className="divDevs" width="50%">
               Cambiar contraseña
             </div>
@@ -64,7 +61,6 @@ export default function ChangePassword() {
             <form className="form-login">
               <div className="div-login">
                 <label>Ingresar contraseña actual</label>
-                <br />
                 <br />
                 <input
                   className="input-password"

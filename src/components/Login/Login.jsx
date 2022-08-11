@@ -54,7 +54,7 @@ export default function Login() {
           <span className="corazonContainer"> <div className='like'>
         </div> </span>
             <div className="divDevs" width='50%'>
-            Devstragram
+            Devstagram
             </div>
             
           </Typography>

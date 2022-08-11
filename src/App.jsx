@@ -1,15 +1,19 @@
 import './App.css';
 import ChangePassword from './components/ChangePassword/ChangePassword';
 import Login from './components/Login/Login';
+import Navbar from './components/Navbar/navbar';
 
 function App() {
   return (
+    <div>
+      
      <div className="App">
-       <header className="App-header">
+       <div className="App-header">
          {/* <Login/> */}
          <ChangePassword/>
-       </header> 
+       </div> 
      </div> 
+     </div>
   );
 }
 
