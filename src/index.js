@@ -1,25 +1,41 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import Login from './components/Login/Login';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+
+// Context
+import { GlobalProvider } from "./context/global-context";
+
+// Componentes:
+import App from "./App";
+import Posts from "./components/Posts/Posts";
+import Login from "./components/Login/Login";
+import Register from "./components/register/register";
+import Navbar from "./components/Navbar/navbar"
+import ChangePassword from "./components/ChangePassword/ChangePassword";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-{/* 
-<BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Login />}>
-          <Route path="like" element={<Like />} />
-        </Route>
-      </Routes>
-</BrowserRouter> */}
-
-    <App />
-  </React.StrictMode>
+  <div className="App">
+    <header className="App-header">
+      <GlobalProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/posts" element={<Posts />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/navbar" element={<Navbar />} />
+            <Route path="/cambiarPass" element={<ChangePassword />} />
+            <Route path="/notfound" element={<App />} />
+            <Route path="*" element={<Navigate replace to="/notfound" />} />
+            <Route path="/" element={<Navigate replace to="/login" />} />
+          </Routes>
+        </BrowserRouter>
+      </GlobalProvider>
+    </header>
+  </div>
 );
 
 // If you want to start measuring performance in your app, pass a function
