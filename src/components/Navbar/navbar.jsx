@@ -14,7 +14,7 @@ import Logout from '@mui/icons-material/Logout';
 import { Link } from 'react-router-dom';
 import '../Navbar/navbar.css';
 import { GlobalContext } from "../../context/global-context";
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 
 export default function Navbar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
