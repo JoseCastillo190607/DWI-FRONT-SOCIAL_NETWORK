@@ -51,18 +51,18 @@ export default function ChangePassword() {
     <div>
       <div className="containerPassword" sx={{ minWidth: 275, width: 350 }}>
         <CardContent>
-          <Typography className="containerContent" variant="h5" component="div">
-            <div className="divDevs" width="50%">
-              {t("change_pass")}
+          <div className="containerContent" variant="h5" component="div">
+            <div className="divDevs">
+            <label className="CambioPass" >{t("change_pass")}</label>   
             </div>
-          </Typography>
-          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          </div>
+          <Typography  sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             <form className="form-login">
               <div className="div-login">
                 <label>{t("actual_pass")}</label>
                 <br />
                 <input
-                  className="input-password"
+                  className="input-correo"
                   placeholder={t("actual_pass")}
                   type="password"
                   onChange={(event) => {
@@ -76,7 +76,7 @@ export default function ChangePassword() {
                 <br />
                 <br />
                 <input
-                  className="input-password"
+                  className="input-correo"
                   placeholder={t("new_pass")}
                   type="password"
                   onChange={(event) => {
@@ -90,7 +90,7 @@ export default function ChangePassword() {
                 <br />
                 <br />
                 <input
-                  className="input-password"
+                  className="input-correo"
                   type="password"
                   placeholder={t("confirm_pass")}
                   onChange={(event) => {

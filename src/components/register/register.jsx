@@ -55,16 +55,11 @@ export default function Login() {
       >
         <CardContent>
           <Typography className="containerContent" variant="h5" component="div">
-            <div className="containerLogo">
-              <div className="divDevs" width="50%">
-                <span className="corazonContainer">
-                  {" "}
-                  <div className="like"></div>{" "}
-                </span>
-              </div>
-            </div>
-            <div className="divDevs" width="50%">
+            <div className="containerLogo"> 
+             <div className="divDevs">
               Devstagram
+            </div>
+            
             </div>
           </Typography>
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
@@ -82,7 +77,7 @@ export default function Login() {
                   }}
                 />
                 <input
-                  className="input-password"
+                  className="input-correo"
                   placeholder={t("f_lastname")}
                   type="text"
                   onChange={(event) => {

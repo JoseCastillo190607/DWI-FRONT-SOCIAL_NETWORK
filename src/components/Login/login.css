@@ -136,38 +136,71 @@
   -o-border-radius: 4px;
 }
 
-.input-password {
-  padding: 9px 0px 7px 8px;
-  margin-bottom: 20px;
-  margin-left: -10px;
-  width: 250px;
-  height: 20px;
-  color: #000;
-  background-color: rgba(255, 255, 255, 0.1);
-  border: solid 1px #dbdbdb;
-  border-radius: 4px;
-  box-shadow: rgba(-255, -255, -255, 0.5);
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  /* background-color: #fafafa;
-    border: solid 1px #dbdbdb; */
-}
 
-.input-password:hover {
-  color: #fff;
-  border: solid 1px #dbdbdb;
-  background-color: transparent;
-  /*border: solid 1px #dbdbdb;
-    */
-  border-radius: 4px;
-  box-shadow: rgba(255, 255, 255, 0.5);
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-}
+.input-password {
+    padding: 9px 0px 7px 8px;
+    margin-bottom: 13px;
+    margin-left: -10px;
+    margin-top: 8px;
+    width: 20px;
+    height: 20px;
+    color: #000;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: solid 1px #dbdbdb;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+  }
+  
+  .input-password:hover {
+    border: solid 1px #dbdbdb;
+    color: #fff;
+    background-color: transparent;
+    /*border: solid 1px #dbdbdb;
+      */
+    border-radius: 4px;
+    box-shadow: rgba(-255, -255, -255, 0.5);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+  }
+
+/* .input-password {
+    padding: 9px 0px 7px 8px;
+    margin-bottom: 13px;
+    margin-left: -10px;
+    margin-top: 8px;
+    width: 20px;
+    height: 20px;
+    color: #000;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: solid 1px #dbdbdb;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+  /* background-color: #fafafa;
+    border: solid 1px #dbdbdb; 
+} */
+
+/* .input-password:hover {
+    border: solid 1px #dbdbdb;
+    color: #fff;
+    background-color: #000;
+    /*border: solid 1px #dbdbdb;
+      
+    border-radius: 4px;
+    box-shadow: rgba(-255, -255, -255, 0.5);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+} */
+
 
 .btnLogin {
   border-radius: 4px;
