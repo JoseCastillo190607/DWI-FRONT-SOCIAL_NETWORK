@@ -1,10 +1,27 @@
 import "./changePassword.css";
-import React from "react";
+import React, {useState} from "react";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import axios from "axios";
+
+const url = '//localhost:5000/api/register';
+
 
 export default function ChangePassword() {
+
+  const [datapass, setDatapass] = useState({});
+
+  function coincidir(){
+    if(datapass.passnew === datapass.passcon){
+      console.log("pass correcta");
+      axios.post(`${url}`,datapass)
+    }
+    else{
+      console.log("contraseña incorrecta");
+    }
+  }
+
   return (
     <div>
       <div
@@ -29,9 +46,10 @@ export default function ChangePassword() {
                 <input
                   className="input-password"
                   placeholder="Contraseña actual"
-                //   onChange={(event) => {
-                //     setEmail(event.target.value);
-                //   }}
+                  type="password"
+                  onChange={(event) => {
+                    setDatapass((current) => ({...current,passant:event.target.value}));
+                  }}
                 >
 
                 </input>
@@ -41,9 +59,10 @@ export default function ChangePassword() {
                 <input
                   className="input-password"
                   placeholder="Nueva contraseña"
-                //   onChange={(event) => {
-                //     setEmail(event.target.value);
-                //   }}
+                  type="password"
+                  onChange={(event) => {
+                    setDatapass((current) => ({...current,passnew:event.target.value}));
+                  }}
                 ></input>
                 <label>Confirmar contraseña </label>
                 <br />
@@ -52,18 +71,18 @@ export default function ChangePassword() {
                   className="input-password"
                   type="password"
                   placeholder="Confirmar Contraseña"
-                //   onChange={(event) => {
-                //     setPass(event.target.value);
-                //   }}
+                  onChange={(event) => {
+                    setDatapass((current) => ({...current,passcon:event.target.value}));
+                  }}
                 ></input>
               </div>
               <div className="div-password">
                 <Button
                   type="button"
                   className="btnPassword"
-                //   onClick={() => {
-                //     setCheckData({ email, pass });
-                //   }}
+                  onClick={() => {
+                    coincidir()
+                  }}
                 >
                   Cambiar contraseña
                 </Button>
