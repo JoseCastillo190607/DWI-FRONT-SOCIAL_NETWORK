@@ -62,7 +62,7 @@ export default function Login() {
               <div className="div-login">
                 <input
                   className="input-correo"
-                  placeholder="Nombre"
+                  placeholder={t("name")}
                   type="text"
                   onChange={(event) => {
                     setDataregister((current) => ({
@@ -73,7 +73,7 @@ export default function Login() {
                 />
                 <input
                   className="input-password"
-                  placeholder="Apellido Paterno"
+                  placeholder={t("f_lastname")}
                   type="text"
                   onChange={(event) => {
                     setDataregister((current) => ({
@@ -84,7 +84,7 @@ export default function Login() {
                 />
                 <input
                   className="input-correo"
-                  placeholder="Apellido materno"
+                  placeholder={t("s_lastname")}
                   type="text"
                   onChange={(event) => {
                     setDataregister((current) => ({
@@ -95,7 +95,7 @@ export default function Login() {
                 />
                 <input
                   className="input-correo"
-                  placeholder="Correo electronico"
+                  placeholder={t("email")}
                   type="email"
                   onChange={(event) => {
                     setDataregister((current) => ({
@@ -106,7 +106,7 @@ export default function Login() {
                 />
                 <input
                   className="input-correo"
-                  placeholder="Contraseña"
+                  placeholder={t("password")}
                   type="password"
                   onChange={(event) => {
                     setDataregister((current) => ({
@@ -117,7 +117,7 @@ export default function Login() {
                 />
                 <input
                   className="input-correo"
-                  placeholder="Fecha de nacimiento"
+                  placeholder={t("birth")}
                   type="date"
                   onChange={(event) => {
                     setDataregister((current) => ({
@@ -159,7 +159,7 @@ export default function Login() {
                     register();
                   }}
                 >
-                  Registrate
+                  {t("sign")}
                 </Button>
               </div>
             </form>
@@ -178,7 +178,7 @@ export default function Login() {
           sx={{ mb: 1.5 }}
           color="text.secondary"
         >
-          <label size="small">¿Ya tienes una cuenta?</label>
+          <label size="small">{t("question")}</label>
         </Typography>
         <CardActions className="btnRegister">
           <Link to="/login">

@@ -1,19 +1,20 @@
 import './App.css';
 import ChangePassword from './components/ChangePassword/ChangePassword';
 import Login from './components/Login/Login';
-import Navbar from './components/Navbar/navbar';
+import Register from './components/register/register'
 
 function App() {
+  const { i18n, t } = useTranslation();
+  function changeLanguage(language) {
+    i18n.changeLanguage(language);
+  }
   return (
-    <div>
-      
-     <div className="App">
-       <div className="App-header">
-         {/* <Login/> */}
-         <ChangePassword/>
-       </div> 
-     </div> 
-     </div>
+    <div className="App">
+      <header className="App-header">
+       {/* <Login/> */}
+       <Register/>
+      </header> 
+    </div>
   );
 }
 

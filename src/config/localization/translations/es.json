@@ -1,0 +1,12 @@
+{
+    "name": "Nombre",
+    "f_lastname": "Apellido paterno",
+    "s_lastname": "Apellido materno",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "birth": "Fecha de nacimiento",
+    "sign": "Regístrate",
+    "question": "¿Ya tienes una cuenta?",
+    "login": "Iniciar sesión",
+    "neg_question": "¿No tienes una cuenta?"
+}
