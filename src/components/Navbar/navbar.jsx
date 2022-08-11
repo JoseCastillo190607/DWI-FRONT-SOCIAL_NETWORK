@@ -11,10 +11,8 @@ import Logout from "@mui/icons-material/Logout";
 import { Link, useNavigate } from "react-router-dom";
 import "../Navbar/navbar.css";
 import { GlobalContext } from "../../context/global-context";
-import { useContext } from 'react';
-import { unstable_getNormalizedScrollLeft } from '@mui/utils';
+import { useContext } from "react";
 import { useTranslation } from "react-i18next";
-
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -44,9 +42,20 @@ export default function Navbar() {
   return (
     <div className="navbar">
       <React.Fragment>
-        <Box className='nav' sx={{
-          display: 'flex', alignItems: 'center', textAlign: 'center', backgroundColor: 'black', width: '700px', height: '50px', borderRadius: '10px', justifyContent: 'center', padding: '5px'
-        }}>
+        <Box
+          className="nav"
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            textAlign: "center",
+            backgroundColor: "black",
+            width: "700px",
+            height: "50px",
+            borderRadius: "10px",
+            justifyContent: "center",
+            padding: "5px",
+          }}
+        >
           <div>
             <div className="btnLanguage">
               <button
@@ -67,8 +76,12 @@ export default function Navbar() {
               </button>
             </div>
           </div>
-          <Typography sx={{ minWidth: 100 }}><h2 className='devTitle'>Devstagram</h2></Typography>
-          <Typography sx={{ minWidth: 110 }}>{userdata.name} {userdata.firstlastname} {userdata.secondlastname}</Typography>
+          <Typography sx={{ minWidth: 100 }}>
+            <h2 className="devTitle">Devstagram</h2>
+          </Typography>
+          <Typography sx={{ minWidth: 110 }}>
+            {userdata.name} {userdata.firstlastname} {userdata.secondlastname}
+          </Typography>
           <Tooltip title="Account settings">
             {/* <Typography sx={{ minWidth: 100 }}>{userdata.name} {userdata.firstlastname} {userdata.secondlastname}Devstragram</Typography> */}
 
@@ -76,11 +89,17 @@ export default function Navbar() {
               onClick={handleClick}
               size="small"
               sx={{ ml: 2 }}
-              aria-controls={open ? 'account-menu' : undefined}
+              aria-controls={open ? "account-menu" : undefined}
               aria-haspopup="true"
-              aria-expanded={open ? 'true' : undefined}
+              aria-expanded={open ? "true" : undefined}
             >
-              <Avatar sx={{ width: 32, height: 32 }}>{userdata.name}</Avatar>
+              <Avatar sx={{ width: 32, height: 32 }}>
+                <img
+                  src={`https://ucarecdn.com/${userdata.photo}/-/resize/50x50/-/preview/`}
+                  alt=""
+                  srcset=""
+                />
+              </Avatar>
             </IconButton>
           </Tooltip>
         </Box>
@@ -93,44 +112,50 @@ export default function Navbar() {
           PaperProps={{
             elevation: 0,
             sx: {
-              overflow: 'visible',
-              filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+              overflow: "visible",
+              filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
               mt: 1.5,
-              '& .MuiAvatar-root': {
+              "& .MuiAvatar-root": {
                 width: 32,
                 height: 32,
                 ml: -0.5,
                 mr: 1,
               },
-              '&:before': {
+              "&:before": {
                 content: '""',
-                display: 'block',
-                position: 'absolute',
+                display: "block",
+                position: "absolute",
                 top: 0,
                 right: 14,
                 width: 10,
                 height: 10,
-                bgcolor: 'background.paper',
-                transform: 'translateY(-50%) rotate(45deg)',
+                bgcolor: "background.paper",
+                transform: "translateY(-50%) rotate(45deg)",
                 zIndex: 0,
               },
             },
           }}
-          transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-          anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+          transformOrigin={{ horizontal: "right", vertical: "top" }}
+          anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
         >
-          <MenuItem>
+          {/* <MenuItem>
             <Avatar /> {t("edit_count")}
-          </MenuItem>
+          </MenuItem> */}
           <MenuItem>
-            <div> <Link className='link' to="/cambiarPass">
-              <Avatar /><div style={{ width: '30%' }}>{t("change_pass")}</div>
-            </Link>
+            <div>
+              {" "}
+              <Link className="link" to="/cambiarPass">
+                {/* <Avatar /> */}
+                <div style={{ width: "30%" }}>{t("change_pass")}</div>
+              </Link>
             </div>
           </MenuItem>
           {/* <Divider /> */}
-          <MenuItem onClick={() => { loguot() }}>
-
+          <MenuItem
+            onClick={() => {
+              loguot();
+            }}
+          >
             <ListItemIcon>
               <Logout fontSize="small" />
             </ListItemIcon>
@@ -138,6 +163,6 @@ export default function Navbar() {
           </MenuItem>
         </Menu>
       </React.Fragment>
-    </div >
+    </div>
   );
 }

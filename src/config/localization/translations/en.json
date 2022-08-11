@@ -21,5 +21,11 @@
     "actual_pass": "Enter actual password",
     "new_pass": "Enter new password",
     "confirm_pass": "Confirm password",
-    "anonymous": "Anonymous"
+    "anonymous": "Anonymous",
+    "registeralert1": "An error occurred",
+    "loginalert1": "Wrong password or email",
+    "password1": "Congratulations",
+    "password2": "the password was not changed",
+    "password3": "Password has been updated",
+    "password4": "Passwords do not match"
 }

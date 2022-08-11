@@ -33,7 +33,7 @@ export default function Login() {
           Swal.fire({
             icon: "error",
             title: "Opps",
-            text: "Ocurrio un error",
+            text: `${t("registeralert1")}`,
           });
         }
       })
@@ -41,7 +41,7 @@ export default function Login() {
         Swal.fire({
           icon: "error",
           title: "Opps",
-          text: "Ocurrio un error",
+          text: `${t("registeralert1")}`,
         });
       });
   };

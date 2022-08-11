@@ -1,17 +1,13 @@
 import "./Posts.css";
-import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import { useEffect, useState, useContext } from "react";
 import { Widget } from "@uploadcare/react-widget";
 import { GlobalContext } from "../../context/global-context";
 import { useTranslation } from "react-i18next";
 import Navbar from "../Navbar/navbar";
-import edit from "./images/edit.png";
 import PlaceIcon from "@mui/icons-material/Place";
-import { Avatar } from "@mui/material";
 import detele from "./images/delete.png";
 
 import {

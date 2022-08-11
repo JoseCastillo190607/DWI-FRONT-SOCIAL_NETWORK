@@ -26,13 +26,13 @@ export default function ChangePassword() {
           Swal.fire({
             icon: "error",
             title: "Opps",
-            text: "Ocurrio un error!, la contraseña no se cambio",
+            text: `${t("registeralert1")}, ${t("password2")}`,
           });
         } else {
           Swal.fire({
             icon: "success",
-            title: "Felicidades",
-            text: "La contraseña se ha actualizado",
+            title: `${t("password1")}`,
+            text: `${t("password3")}`,
             timer: 3000,
           });
           navigate("/posts");
@@ -42,7 +42,7 @@ export default function ChangePassword() {
       Swal.fire({
         icon: "error",
         title: "Opps",
-        text: "Las contraseñas no coinciden",
+        text: `${t("password4")}`,
       });
     }
   }

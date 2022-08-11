@@ -21,5 +21,11 @@
     "actual_pass": "Ingresar contraseña actual",
     "new_pass": "Ingresar nueva contraseña",
     "confirm_pass": "Confirmar contraseña",
-    "anonymous": "Anónimo"
+    "anonymous": "Anónimo",
+    "registeralert1": "Ocurrio un error",
+    "loginalert1": "Contraseña o correo incorrecto",
+    "password1": "Felicidades",
+    "password2": "No se actualizo la contraseña",
+    "password3": "Constraseña actualizada",
+    "password4": "Las contraseñas no coinciden"
 }
